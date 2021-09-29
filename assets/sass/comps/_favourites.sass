@@ -1,0 +1,175 @@
+.fav
+  &__title
+    margin-bottom: 35px
+  position: relative
+  margin-right: 5px
+  margin-bottom: 14px
+  border-radius: 20px
+  min-height: 112px
+  padding: 16px 16px 16px 35px
+  display: flex
+  align-items: center
+  justify-content: space-between
+  background-color: $primary-main
+  &__frame
+    overflow-y: auto
+    padding-top: 10px
+    padding-right: 10px
+  &__inner
+    max-height: calc(126px * 8)
+  &-del
+    position: absolute
+    top: -8px
+    right: -8px
+    border-radius: 50%
+    border: 3px solid $primary-main
+    width: 25px
+    height: 25px
+    display: flex
+    align-items: center
+    justify-content: center
+    background-color: #FFFFFF
+    cursor: pointer
+    svg
+      width: 60%
+      path
+        fill: darken($primary-main, 5%)
+  .prof
+    margin-right: 10px
+    display: flex
+    align-items: center
+    &-avatar
+      position: relative
+      margin-right: 14px
+      width: 50px
+      height: 50px
+      &-pic
+        border-radius: 50%
+        max-width: 100%
+        width: 100%
+    &-status
+      position: absolute
+      top: 0
+      right: 0
+      border-radius: 50%
+      border: 3px solid $primary-main
+      width: 15px
+      height: 15px
+      &._green
+        background-color: $green
+      &._blue
+        background-color: $secondary
+      &._yellow
+        background-color: $tertiary
+      &._red
+        background-color: $red
+      &._light-gray
+        background-color: #b9bdc2
+    &-username
+      +bold
+      font-size: 15px
+      color: $text-dark
+      line-height: 1.5
+      &:hover
+        text-decoration: underline
+    &-subinfo
+      +semibold
+      line-height: 1.5
+      font-size: 13px
+    ._green
+      color: $green
+      &:hover
+        color: darken($green, 15%)
+    ._blue
+      color: $secondary
+      &:hover
+        color: darken($secondary, 15%)
+    ._yellow
+      color: $tertiary
+      &:hover
+        color: darken($tertiary, 15%)
+    ._red
+      color: $red
+      &:hover
+        color: darken($red, 15%)
+    ._light-gray
+      color: #b9bdc2
+      &:hover
+        color: darken(#b9bdc2, 15%)
+  .item
+    border-radius: 20px
+    max-width: 470px
+    width: 100%
+    padding: 25px 30px
+    display: flex
+    align-items: center
+    background-color: #FFFFFF
+    box-shadow: 0px 10px 10px 1px rgba(0, 0, 0, 0.05)
+    &-status
+      margin-right: 10px
+      border-radius: 14px
+      height: 28px
+      padding: 0 10px
+      display: flex
+      align-items: center
+      justify-content: center
+      +extrabold
+      text-transform: uppercase
+      font-size: 13px
+      background-color: $secondary
+      color: #FFFFFF
+      cursor: pointer
+      &:hover
+        background-color: darken($secondary, 10%)
+    &-title
+      +bold
+      font-size: 13px
+      line-height: 1.5
+      color: $text-dark
+      p
+        margin: 0
+    &-tag
+      margin-left: auto
+      +bold
+      font-size: 13px
+      color: $tertiary
+      &:hover
+        color: darken($tertiary, 10%)
+
+@media ( max-width: 1200px )
+  .fav
+    .item
+      padding: 20px 25px
+      max-width: 400px
+
+@media ( max-width: 768px )
+  .fav
+    margin-right: 0
+    padding: 10px
+    flex-direction: column
+    align-items: flex-start
+    &__frame
+      overflow-y: visible
+      padding-right: 0
+    &__inner
+      max-height: none
+    .prof
+      margin-right: 0
+      width: 90%
+      margin-bottom: 15px
+      &-username
+        font-size: 12px
+      &-subinfo
+        font-size: 11px
+    .item
+      max-width: 100%
+      &-status
+        position: absolute
+        top: 20px
+        right: 20px
+      &-title
+        font-size: 11px
+      &-tag
+        font-size: 11px
+
+

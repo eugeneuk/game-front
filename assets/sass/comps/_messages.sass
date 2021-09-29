@@ -1,0 +1,253 @@
+.pm
+  border-radius: 20px
+  min-height: 860px
+  display: flex
+  background-color: $primary-main
+  &__title
+    margin-bottom: 35px
+  &-bar
+    padding: 24px 0 24px 24px
+    margin-right: 24px
+    flex: 0 0 276px
+    overflow-y: auto
+    padding-right: 5px
+    .swiper-container
+      max-height: 860px
+    .swiper-wrapper
+      display: block
+    .swiper-button
+        &-prev, &-next
+          display: none
+  &-item
+    margin-bottom: 12px
+    border: 4px solid #FFFFFF
+    position: relative
+    border-radius: 15px
+    padding: 7px
+    display: flex
+    align-items: center
+    background-color: #FFFFFF
+    box-shadow: 0 10px 10px 1px rgba(0, 0, 0, 0.08)
+    &:hover
+      border: 4px solid #EEF3F7
+      .pm-item-arrow
+        display: flex
+    &._has-pm
+      border: 2px solid $tertiary
+      .pm-item-notif
+        position: absolute
+        top: -10px
+        left: -10px
+        border-radius: 5px
+        min-width: 30px
+        height: 30px
+        display: flex
+        align-items: center
+        justify-content: center
+        +bold
+        font-size: 13px
+        color: #FFFFFF
+        background: linear-gradient(-90deg, $gradient-dark 0%, $gradient-light 100%)
+    &-notif
+      display: none
+    &-pic
+      margin-right: 15px
+      width: 48px
+    &-username
+      +bold
+      line-height: 1.5
+      font-size: 15px
+      color: $text-dark
+      &:hover
+        text-decoration: underline
+    &-status
+      display: flex
+      align-items: center
+      &__icon
+        margin-right: 6px
+        border-radius: 50%
+        width: 6px
+        height: 6px
+        &._green
+          background-color: $green
+        &._red
+          background-color: $red
+      &__text
+        +bold
+        font-size: 11px
+        color: #959ea9
+    &-arrow
+      display: none
+      position: absolute
+      top: 50%
+      transform: translateY(-50%)
+      right: 13px
+      border-radius: 50%
+      border: 4px solid #EEF3F7
+      width: 30px
+      height: 30px
+      align-items: center
+      justify-content: center
+      background-color: #FFFFFF
+      svg
+        width: 11px
+        transform: translateX(1px)
+        path
+          fill: $tertiary
+  &-chat
+    margin-bottom: 15px
+    height: 575px
+    overflow-y: auto
+    padding-right: 10px
+    &__wrap
+      margin: 24px 24px 24px 0
+      border-radius: 20px
+      flex: 1 1 auto
+      padding: 24px
+      background-color: #FFFFFF
+    .msg
+      border-bottom: 1px dotted #E6E6E6
+      padding: 24px 0
+      &:first-child
+        padding-top: 0
+      &:last-child
+        border-bottom: none
+      &-h
+        margin-bottom: 12px
+        display: flex
+        align-items: center
+        justify-content: space-between
+        flex-wrap: wrap
+      &-username
+        +bold
+        font-size: 14px
+        &._yellow
+          color: $tertiary
+          &:hover
+            color: darken($tertiary, 10%)
+            text-decoration: underline
+        &._blue
+          color: $secondary
+          &:hover
+            color: darken($secondary, 10%)
+            text-decoration: underline
+      &-datetime
+        +semibold
+        font-size: 11px
+        color: #c3cad4
+      &-p
+        margin: 0
+        margin-bottom: 10px
+        +semibold
+        font-size: 13px
+        line-height: 1.4
+        color: #959ea9    
+    &-textarea
+      margin-bottom: 24px
+      border-radius: 20px
+      border: none
+      width: 100%
+      height: 135px
+      padding: 25px 23px
+      +semibold
+      font-size: 13px
+      color: #c9ced4
+      background-color: $primary-main
+      resize: none
+      &::placeholder
+        color: #c9ced4
+    &-send
+      margin-left: auto
+      display: block
+      border-radius: 21px
+      border: none
+      height: 42px
+      padding: 0 20px
+      +extrabold
+      font-size: 14px
+      cursor: pointer
+
+@media ( max-width: 1367px )
+  .pm
+    &-chat
+      .msg
+        &-p
+          font-size: 12px
+
+@media ( max-width: 1200px )
+  .pm
+    &-bar
+      flex: 0 0 240px
+    &-item
+      &._has-pm
+        .pm-item-notif
+          min-width: 25px
+          height: 25px
+          font-size: 11px
+      &-pic
+        width: 36px
+      &-username
+        font-size: 13px
+
+@media ( max-width: 768px )
+  .pm
+    border-radius: 0
+    background-color: #FFFFFF
+    overflow: hidden
+    flex-direction: column
+    &__title
+      margin-bottom: 20px
+      text-align: center
+    &-bar
+      position: relative
+      margin: 0
+      flex: 0 0 auto
+      width: 100%
+      padding: 8px 30px
+      background-color: $primary-main
+      overflow-y: visible
+      .swiper-wrapper
+        display: flex
+      .swiper-button
+        &-prev, &-next
+          display: block
+          width: 14px
+          height: 20px
+          top: 57px
+          transform: translateY(-50%)
+          &::after
+            font-size: 12px
+    &-item
+      margin-bottom: 0
+    &-chat
+      &__wrap
+        border-radius: 10px
+        margin: 16px 0 0
+        padding: 12px
+        background-color: $primary-main
+      .msg
+        margin-bottom: 12px
+        border-bottom: none
+        border-radius: 10px
+        padding: 13px 15px
+        background-color: #FFFFFF
+        &:first-child
+          padding-top: 13px
+        &-username
+          font-size: 12px
+        &-datetime
+          font-size: 9px
+        &-p
+          font-size: 9px
+      &-textarea
+        margin-bottom: 15px
+        border: 1px solid #EAEFF1
+        height: 86px
+        padding: 13px
+        font-size: 9px
+        background-color: #EDF2F9
+      &-send
+        margin: 0 auto
+        height: 30px
+        padding: 0 15px
+        font-size: 11px

@@ -1,0 +1,98 @@
+.sup
+  &__title
+    margin-bottom: 30px
+  &-switch
+    margin-bottom: 30px
+    display: flex
+    align-items: center
+    &-item
+      margin-right: 20px
+      border-radius: 22px
+      min-height: 43px
+      padding: 0 16px
+      display: flex
+      align-items: center
+      justify-content: center
+      +bold
+      font-size: 14px
+      color: $text-dark
+      background-color: $primary-main
+      cursor: pointer
+      transition: all 0.1s
+      transition-timing-function: ease
+      &:hover
+        &:not(.active)
+          background-color: darken($primary-main, 5%)
+      &.active
+        background-color: $secondary
+        transform: scale(1.01)
+        color: #FFFFFF
+  &-linkout
+    margin-left: auto
+    border-radius: 22px
+    min-height: 43px
+    padding: 0 16px
+    display: flex
+    align-items: center
+    justify-content: center
+    +bold
+    font-size: 14px
+  &-item
+    margin-bottom: 10px
+    border-radius: 15px
+    padding: 23px 30px
+    display: flex
+    align-items: center
+    justify-content: space-between
+    background-color: $primary-main
+    transition: 0.3s
+    &:hover
+      background-color: $secondary
+      .sup-item
+        &-title
+          color: #FFFFFF
+        &-desc
+          color: #a0cdff
+        &-date
+          color: #71b4ff
+    &:last-child
+      margin-bottom: 0
+    &-title
+      margin: 0
+      margin-bottom: 3px
+      +bold
+      font-size: 15px
+      color: $text-dark
+    &-desc
+      +semibold
+      font-size: 13px
+      color: $text-light
+    &-date
+      +bold
+      font-size: 13px
+      color: #d5d8de
+
+@media ( max-width: 768px )
+  .sup
+    &__title
+      text-align: center
+    &-linkout
+      margin-left: 0
+      font-size: 13px
+    &-switch
+      flex-direction: column
+      &-item
+        margin-bottom: 15px
+        margin-right: 0
+        font-size: 13px
+    &-item
+      padding: 15px
+      align-items: flex-start
+      &-title
+        font-size: 13px
+      &-desc
+        font-size: 11px
+      &-date
+        flex-shrink: 0
+        font-size: 10px
+

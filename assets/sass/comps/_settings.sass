@@ -1,0 +1,210 @@
+.set
+  &__title
+    margin-bottom: 35px
+  margin-bottom: 32px
+  border-radius: 15px
+  padding: 22px 40px 22px 26px
+  display: flex
+  align-items: center
+  justify-content: space-between
+  background-color: $primary-main
+  .prof
+    flex-shrink: 0
+    display: flex
+    align-items: center
+    &-avatar
+      margin-right: 20px
+      border-radius: 50%
+      flex-shrink: 0
+      width: 92px
+      height: 92px
+    &-username
+      +extrabold
+      font-size: 20px
+      line-height: 1.5
+      color: $text-dark
+      &:hover
+        text-decoration: underline
+    &-subinfo
+      +semibold
+      font-size: 13px
+      &._green
+        color: $green
+      &._blue
+        color: $secondary
+      &._yellow
+        color: $tertiary
+      &._red
+        color: $red
+      &._light-gray
+        color: #b9bdc2
+  &-bar
+    display: flex
+    align-items: center
+    justify-content: flex-end
+    &-item
+      margin: 0 12px
+      border-radius: 18px
+      padding: 0 20px
+      min-height: 36px
+      display: flex
+      align-items: center
+      justify-content: center
+      +bold
+      font-size: 13px
+      white-space: nowrap
+      color: #596470
+      background-color: #FFFFFF
+      box-shadow: 0px 10px 10px 1px rgba(0, 0, 0, 0.05)
+      transition: 0.2s
+      &:hover
+        background-color: $secondary
+        color: #FFFFFF
+
+.not
+  border-radius: 15px
+  padding: 30px
+  background-color: $primary-main
+  &__title
+    margin-bottom: 24px
+    +extrabold
+    font-size: 18px
+    color: $text-dark
+  &__inner
+    display: grid
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr))
+    grid-row-gap: 35px
+    grid-column-gap: 35px
+  &-item
+    border-radius: 10px
+    padding: 19px 23px
+    background-color: #FFFFFF
+    box-shadow: 0px 10px 10px 1px rgba(0, 0, 0, 0.05)
+    &-h
+      margin-bottom: 15px
+      display: flex
+      align-items: center
+    &-icon
+      margin-right: 13px
+      max-width: 30px
+    &-title
+      +extrabold
+      font-size: 15px
+      color: $secondary
+    &-p
+      margin: 0
+      margin-bottom: 15px
+      +semibold
+      font-size: 13px
+      line-height: 1.4
+      color: #40464e
+    &-desc
+      p
+        margin: 0
+        +semibold
+        font-size: 13px
+        line-height: 1.4
+        color: #40464e
+    &-btn
+      margin-top: 20px
+      border-radius: 20px
+      border: none
+      min-height: 40px
+      padding: 0 20px
+      display: flex
+      justify-content: center
+      align-items: center
+      +bold
+      font-size: 13px
+      color: $text-dark
+      background: #EAF1F7
+      cursor: pointer
+      transition: 0.2s
+      &:hover
+        color: #FFFFFF
+        background: linear-gradient(0deg, $gradient-dark 0%, $gradient-light 100%)
+        transform: scale(1.03)
+
+@media ( max-width: 1400px )
+  .set
+    padding: 20px
+    .prof
+      &-avatar
+        margin-right: 10px
+        width: 70px
+        height: 70px
+    &-bar
+      &-item
+        margin: 0 5px
+        padding: 0 10px
+    
+@media ( max-width: 1200px )
+  .set
+    &-bar
+      flex-wrap: wrap
+      &-item
+        margin-bottom: 10px
+        width: 35%
+  
+@media ( max-width: 991px )
+  .set
+    &-bar
+      &-item
+        width: 44%
+        text-align: center
+        white-space: normal
+        font-size: 11px
+
+
+@media ( max-width: 768px )
+  .set
+    flex-wrap: wrap
+    &__title
+      text-align: center
+    .prof
+      margin-bottom: 35px
+      width: 100%
+      justify-content: center
+    &-bar
+      width: 100%
+      justify-content: center
+
+@media ( max-width: 520px )
+  .set
+    border-radius: 10px
+    padding: 30px 10px
+    .prof
+      flex-wrap: wrap
+      &-avatar
+        margin-right: 0
+        margin-bottom: 20px
+      &-info
+        width: 100%
+      &-username
+        text-align: center
+        font-size: 15px
+      &-subinfo
+        text-align: center
+        font-size: 11px
+    &-bar
+      flex-wrap: nowrap
+      flex-direction: column
+      &-item
+        width: auto
+        padding: 0 15px
+    
+  .not
+    padding: 0
+    background-color: #FFFFFF
+    &__title
+      text-align: center
+    &__inner
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr))
+      grid-row-gap: 10px
+      padding: 14px
+      background-color: $primary-main
+    &-item
+      &-p
+        line-height: 1.2
+      &-desc
+        display: none

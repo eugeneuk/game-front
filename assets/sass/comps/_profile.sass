@@ -1,0 +1,383 @@
+.pr
+  &-top
+    margin-bottom: 30px
+    display: flex
+    align-items: center
+    justify-content: space-between
+  &__title
+    margin-bottom: 0
+    .username
+      color: $tertiary
+  &-regdate
+    display: flex
+    align-items: center
+    &__icon
+      margin-right: 10px
+    &__text
+      +bold
+      font-size: 13px
+      color: #959ea9
+    .value
+      color: $tertiary
+  &-h
+    margin-bottom: 20px
+    display: flex
+    align-items: center
+    justify-content: space-between
+  .prof
+    flex-shrink: 0
+    display: flex
+    align-items: center
+    &-avatar
+      width: 100px
+      height: 100px
+      margin-right: 18px
+    &-username
+      margin-bottom: 5px
+      +extrabold
+      font-size: 20px
+      color: $text-dark
+      &:hover
+        text-decoration: underline
+        color: lighten($text-dark, 10%)
+    &-status
+      display: flex
+      align-items: center
+      &__icon
+        margin-right: 5px
+        border-radius: 50%
+        width: 6px
+        height: 6px
+        &._green
+        background-color: $green
+        &._blue
+          background-color: $secondary
+        &._yellow
+          background-color: $tertiary
+        &._red
+          background-color: $red
+        &._light-gray
+          background-color: #b9bdc2
+      &__text
+        +bold
+        font-size: 13px
+        color: #959ea9
+  &-bar
+    display: flex
+    align-items: center
+    &-btns
+      margin-right: 25px
+      display: flex
+      align-items: center
+    &-btn
+      border: none
+      height: 56px
+      padding: 0 20px
+      +extrabold
+      text-transform: uppercase
+      font-size: 14px
+      color: #d1d3d6
+      background: $primary-main
+      cursor: pointer
+      &:hover
+        background: linear-gradient(0deg, $gradient-dark 0%, $gradient-light 100%)
+        color: #FFFFFF
+      &._left
+        border-top-left-radius: 28px
+        border-bottom-left-radius: 28px
+      &._right
+        border-top-right-radius: 28px
+        border-bottom-right-radius: 28px
+  &-balance
+    margin-right: 23px
+    .label
+      +bold
+      font-size: 11px
+      color: #caced4
+    .value
+      +extrabold
+      font-size: 21px
+      color: $tertiary
+  &-fa
+    border-radius: 10px
+    padding: 12px 15px
+    display: flex
+    align-items: center
+    background-color: $primary-main
+    transition: 0.2s
+    &:hover
+      background-color: darken($primary-main, 5%)
+    &__icon
+      margin-right: 10px
+    &-label
+      +extrabold
+      font-size: 14px
+      line-height: 1.5
+      color: $text-dark
+    &-desc
+      +semibold
+      font-size: 13px
+      color: #aeb8c4
+  &-switch
+    margin-bottom: 20px
+    display: flex
+    align-items: center
+    &-wrapper
+      margin-bottom: 35px
+    &-item
+      margin-right: 5px
+      border-radius: 18px
+      min-height: 36px
+      padding: 0 18px
+      display: flex
+      align-items: center
+      justify-content: center
+      +bold
+      font-size: 13px
+      color: $text-dark
+      cursor: pointer
+      background-color: #FFFFFF
+      transition: 0.2s
+      &:hover
+        &:not(.active)
+          background-color: darken(#FFFFFF, 5%)
+      &.active
+        background-color: $secondary
+        color: #FFFFFF
+  &-res
+    &-h
+      margin-bottom: 20px
+      display: flex
+      align-items: center
+      justify-content: space-between
+    &__title
+      +extrabold
+      font-size: 23px
+      color: $text-dark
+    &__amount
+      +extrabold
+      font-size: 17px
+      color: $tertiary
+    &__wrap
+      border-radius: 20px
+      padding: 25px
+      background-color: $primary-main
+    .res
+      margin-bottom: 20px
+      border-radius: 15px
+      padding: 20px
+      display: flex
+      align-items: center
+      background-color: #FFFFFF
+      box-shadow: 0 10px 10px 1px rgba(0, 0, 0, 0.1)
+      &__inner
+        flex-grow: 1
+      &-pic
+        max-width: 80%
+        &__wrap
+          margin-right: 14px
+          flex-shrink: 0
+          border-radius: 28px
+          border: 4px solid #EBF0F5
+          width: 56px
+          height: 56px
+          display: flex
+          align-items: center
+          justify-content: center
+      &-h
+        margin-bottom: 5px
+        display: flex
+        align-items: center
+        justify-content: space-between
+      &-username
+        +extrabold
+        font-size: 15px
+        color: $tertiary
+        &:hover
+          text-decoration: underline
+      &-date
+        +semibold
+        font-size: 13px
+        color: #a5a8ac
+      &-text
+        margin-bottom: 10px
+        +bold
+        font-size: 13px
+        color: $text-dark
+      &-f
+        display: flex
+        align-items: center
+        flex-wrap: wrap
+      &-game
+        margin-right: 10px
+        +bold
+        font-size: 13px
+        color: $secondary
+      &-amount
+        +bold
+        font-size: 13px
+        color: $tertiary
+    &-send
+      &__title
+        margin-bottom: 15px
+        +bold
+        font-size: 15px
+        color: $text-dark
+      &-textarea
+        margin-bottom: 20px
+        border-radius: 15px
+        border: 1px solid #E8EDF2
+        width: 100%
+        height: 120px
+        padding: 20px
+        +semibold
+        font-size: 13px
+        color: #babec3
+        background-color: #EBF2F8
+        resize: none
+        &::placeholder
+          color: #babec3
+      &-f
+        display: flex
+        align-items: center
+        justify-content: space-between
+      &-warning
+        flex-shrink: 1
+        +semibold
+        font-size: 13px
+        color: #babec3
+      &-btn
+        flex-shrink: 0
+        border: none
+        border-radius: 21px
+        height: 42px
+        padding: 0 20px
+        +extrabold
+        font-size: 14px
+        cursor: pointer
+
+@media ( max-width: 1367px )
+  .pr
+    &-top
+      margin-bottom: 20px
+    .prof
+      &-avatar
+        margin-right: 10px
+        width: 70px
+        height: 70px
+      &-username
+        font-size: 16px
+    &-balance
+      flex-shrink: 0
+      margin-right: 10px
+    &-bar
+      &-btns
+        margin-right: 10px
+      &-btn
+        height: 46px
+        font-size: 12px
+    &-fa
+      flex-shrink: 1
+
+@media ( max-width: 991px )
+  .pr
+    .prof
+      margin-right: 10px
+    &-bar
+      flex-wrap: wrap
+      justify-content: space-between
+      width: 70%
+      &-btns
+        margin-right: 0
+      &-btn
+        padding: 0 10px
+    &-fa
+      margin-top: 15px
+      width: 100%
+    &-balance
+      .value
+        font-size: 14px
+
+@media ( max-width: 768px )
+  .pr
+    .prof
+      &-avatar
+        width: 50px
+        height: 50px
+      &-status
+        &__text
+          font-size: 11px
+    &-switch
+      &-item
+        height: 34px
+        padding: 0 12px
+        font-size: 11px
+    .table__wrapper
+      display: none
+
+@media ( max-width: 520px )
+  .pr
+    &-top
+      flex-direction: column
+    &__title
+      margin-bottom: 10px
+    &-h
+      flex-direction: column
+    .prof
+      margin-right: 0
+      flex-direction: column
+      margin-bottom: 25px
+      &-avatar
+        margin-right: 0
+        margin-bottom: 20px
+        width: 90px
+        height: 90px
+      &-username
+        font-size: 15px
+      &-status
+        &__text
+          font-size: 11px
+    &-bar
+      width: 100%
+      flex-direction: column
+    &-balance
+      margin-right: 0
+      margin-bottom: 15px
+    &-btns
+      margin-right: 0
+      margin-bottom: 30px
+    &-fa
+      max-width: 300px
+      &-label
+        font-size: 12px
+      &-desc
+        font-size: 11px
+    &-switch
+      flex-direction: column
+    &-res
+      &__wrap
+        padding: 0
+        background-color: #FFFFFF
+      &-h
+          justify-content: center
+      &__title
+        font-size: 18px
+      &__amount
+        display: none
+      .res
+        box-shadow: none
+        border-bottom: 1px dotted #DADADA
+        &:last-child
+          border-bottom: none
+      &-send
+        &__title
+          display: none
+        &-f
+          justify-content: center
+        &-warning
+          display: none
+        &-btn
+          height: 34px
+          padding: 0 15px
+          font-size: 11px
+    

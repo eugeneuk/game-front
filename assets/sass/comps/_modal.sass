@@ -1,0 +1,294 @@
+.modal
+  border-radius: 25px
+  max-width: 400px
+  width: 100%
+  padding: 40px 50px 0
+  background-color: #FFFFFF
+  &._wide
+    max-width: 590px
+  &._sp
+    padding: 30px 35px 0
+  &__wrapper
+    display: none
+    justify-content: center
+    align-items: flex-start
+    position: fixed
+    overflow-y: auto
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    padding-top: 180px
+    background-color: rgba(42, 42, 42, 0.3)
+    &.active
+      display: flex
+  &-h
+    margin-bottom: 35px
+    display: flex
+    align-items: center
+    justify-content: space-between
+    .modal-heading
+      margin-bottom: 0
+  &-heading
+    margin-bottom: 35px
+    display: flex
+    align-items: center
+    &._center
+      justify-content: center
+    &__icon
+      margin-right: 12px
+    &__title
+      +extrabold
+      font-size: 20px
+      color: $text-dark
+  &-balance
+    .label
+      +extrabold
+      font-size: 14px
+      color: #caced4
+    .value
+      +extrabold
+      font-size: 21px
+      color: $tertiary
+  .mf
+    &-input
+      margin-bottom: 20px
+      border: none
+      border-bottom: 2px solid #F0F2F5
+      border-radius: 10px
+      display: block
+      width: 100%
+      height: 52px
+      text-align: center
+      +semibold
+      font-size: 13px
+      color: #abb0b6
+      background-color: $primary-main
+      &::placeholder
+        color: #abb0b6
+    &-captcha
+      margin-bottom: 15px
+      img
+        max-width: 100%
+    &-pay
+      margin-bottom: 30px
+      border-radius: 25px
+      padding: 22px
+      padding-bottom: 0
+      display: flex
+      flex-wrap: wrap
+      align-items: center
+      justify-content: space-between
+      background-color: #EEF3F7
+      &-item
+        margin-bottom: 21px
+        border-radius: 20px
+        width: 30%
+        padding: 25px 20px
+        display: flex
+        align-items: center
+        justify-content: center
+        background-color: #FFFFFF
+        box-shadow: 0 10px 15px 2px rgba(0, 0, 0, 0.1)
+        cursor: pointer
+        img
+          max-width: 90%
+        &.selected
+          background-color: #E9EEF1
+          box-shadow: 0 10px 15px 2px rgba(0, 0, 0, 0.1), inset 0 0 10px 2px rgba(#d3d9dd, 0.5)
+    &-amount
+      border-radius: 24px
+      height: 48px
+      padding: 0 10px
+      display: flex
+      align-items: center
+      justify-content: space-between
+      background-color: #EEF3F7
+      &-input
+        border: none
+        flex-grow: 1
+        height: 90%
+        padding: 0 15px
+        +bold
+        font-size: 13px
+        color: #b5c0ca
+        background-color: #EEF3F7
+        &::placeholder
+          color: #b5c0ca
+      &-bar
+        display: flex
+        align-items: center
+      &-btn
+        flex-shrink: 0
+        margin-right: 10px
+        border-radius: 14px
+        border-bottom: 3px solid #E1EAF0
+        height: 28px
+        display: flex
+        align-items: center
+        justify-content: center
+        padding: 0 12px
+        +bold
+        font-size: 13px
+        color: #b5c0ca
+        background-color: #FFFFFF
+        cursor: pointer
+        user-select: none
+        &:last-child
+          margin-right: 0
+        &:active
+          border-bottom: 2px solid #E1EAF0
+    &-select
+      margin: 15px 0
+      border: 2px solid $primary-back
+      border-radius: 23px
+      width: 100%
+      height: 46px
+      background-color: #FFFFFF
+      box-shadow: 0 10px 15px 1px rgba(0, 0, 0, 0.05)
+      cursor: pointer
+      &-arrow
+        position: absolute
+        right: 8px
+        top: 50%
+        transform: translateY(-50%)
+        border-radius: 50%
+        width: 27px
+        height: 27px
+        display: flex
+        align-items: center
+        justify-content: center
+        font-size: 9px
+        color: #979EA8
+        background-color: $primary-main
+      &-item
+        height: 46px
+        padding: 0 20px
+        display: flex
+        align-items: center
+        +semibold
+        font-size: 13px
+        color: #b2b7c0
+      &-list
+        border: 1px solid $primary-back
+        border-radius: 23px
+        max-height: calc(46px * 4)
+        overflow-y: auto
+        background-color: #FFFFFF
+        li
+          .mf-select-item
+            &:hover
+              background-color: $primary-main
+    &-btn-confirm
+      border: none
+      border-radius: 23px
+      height: 46px
+      margin: 0 auto
+      transform: translateY(50%)
+      display: flex
+      align-items: center
+      justify-content: center
+      padding: 0 20px
+      +bold
+      font-size: 14px
+      background-color: $secondary
+      color: #FFFFFF
+      cursor: pointer
+      box-shadow: 0 10px 15px 2px rgba($secondary, 0.2)
+      &:hover
+        background-color: darken($secondary, 5%)
+    &-btn-send
+      border: none
+      border-radius: 23px
+      height: 54px
+      margin: 0 auto
+      transform: translateY(50%)
+      display: flex
+      align-items: center
+      justify-content: center
+      padding: 0 20px
+      +bold
+      font-size: 14px
+      cursor: pointer
+      box-shadow: 0 10px 15px 2px rgba(lighten($tertiary, 20%), 0.4)
+
+@media ( max-width: 1600px )
+  .modal
+    &__wrapper
+      padding-top: 100px
+
+@media ( max-width: 1367px )
+  .modal
+    &__wrapper
+      padding-top: 10%
+
+@media ( max-width: 768px )
+  .modal
+    &-h
+      margin-bottom: 20px
+    .mf
+      &-amount
+        &-input
+          font-size: 11px
+        &-btn
+          font-size: 11px
+          margin-right: 5px
+
+
+@media ( max-width: 520px )
+  .modal
+    max-width: 290px
+    padding: 28px 35px 0
+    &__wrapper
+      padding: 0 15px
+    &._sp
+      padding: 30px 18px 0
+    &._wide
+      .modal-heading
+        justify-content: center
+    &__wrapper
+      padding-top: 20%
+    &-h
+      flex-direction: column
+      .modal-heading
+        margin-bottom: 10px
+    &-heading
+      margin-bottom: 20px
+      &__title
+        font-size: 14px
+    &-balance
+      .label
+        font-size: 12px
+      .value
+        font-size: 14px
+    .mf
+      &-input
+        margin-bottom: 15px
+        height: 36px
+        font-size: 10px
+      &-captcha
+        display: none
+      &-pay
+        margin-bottom: 10px
+        padding: 10px
+        &-item
+          margin-bottom: 10px
+          padding: 5% 2%
+      &-select
+        height: 38px
+        &-item
+          height: 39px
+          font-size: 11px
+      &-amount
+        height: 39px
+      &-btn-confirm
+        height: 32px
+        padding: 0 15px
+        font-size: 10px
+      &-amount
+        &-bar
+          display: none
+      &-btn-send
+        height: 39px
+        padding: 0 15px
+        font-size: 11px

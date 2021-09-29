@@ -1,0 +1,140 @@
+.main
+  overflow-y: auto
+  padding-right: 20px
+  &__inner
+    max-height: 1100px
+    display: grid
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr))
+    grid-row-gap: 55px
+    grid-column-gap: 35px
+  &__wrap
+    position: relative
+    min-height: 1130px
+  .card
+    border-radius: 20px
+    padding: 25px
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: space-between
+    background-color: $primary-main
+    box-shadow: 0 10px 20px 1px rgba(0, 0, 0, 0.1)
+    &__wrap
+      border-radius: 20px
+      max-height: 290px
+      padding: 12px 12px 0
+      background-color: $primary-back
+    &-pic
+      margin-bottom: 20px
+    &-title
+      margin-bottom: 25px
+      +bold
+      text-align: center
+      font-size: 13px
+      line-height: 1.5
+      color: $text-dark
+      p
+        margin: 0
+    &-vers
+      margin-bottom: 25px
+      display: flex
+      align-items: center
+      justify-content: center
+      &-item
+        margin: 0 2%
+        border-radius: 14px
+        height: 28px
+        padding: 0 10px
+        display: flex
+        align-items: center
+        justify-content: center
+        +extrabold
+        text-transform: uppercase
+        font-size: 13px
+        background-color: #E9EFF6
+        color: $text-dark
+        cursor: pointer
+        transition: 0.2s
+        &:hover
+          background-color: $secondary
+          color: #FFFFFF
+    &-tags
+      display: flex
+      flex-wrap: wrap
+      justify-content: center
+      +semibold
+      font-size: 13px
+      color: #515962
+      .tag
+        margin: 0 1% 2px
+        transition: 0.2s
+        &:hover
+          color: $secondary
+          text-decoration: underline
+
+.alph
+  position: absolute
+  top: 0
+  left: -55px
+  padding: 20px 10px
+  border-radius: 30px
+  background-color: #FFFFFF
+  .ltr
+    margin: 0 auto
+    border-radius: 5px
+    border: 3px solid #FFFFFF
+    width: 26px
+    height: 26px
+    display: flex
+    align-items: center
+    justify-content: center
+    +extrabold
+    text-transform: uppercase
+    font-size: 13px
+    color: #ccd4dc
+    cursor: pointer
+    transition: 0.3s
+    &:hover
+      background-color: $primary-main
+      border-color: $primary-back
+      color: $secondary
+    &.active
+      background-color: $primary-main
+      border-color: $primary-back
+      color: $secondary
+
+@media ( max-width: 991px )
+  .alph
+    position: static
+    width: 100%
+    display: flex
+    flex-wrap: wrap
+    justify-content: center
+    .ltr
+      margin: 0
+
+@media ( max-width: 768px )
+  .main
+    padding-right: 0
+    overflow-y: visible
+    &__wrap
+      margin-bottom: 30px
+    &__inner
+      max-height: none
+      grid-column-gap: 20px
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr))
+
+@media ( max-width: 520px )
+  .main
+    .card
+      &__wrap
+        max-height: 260px
+      &-title
+        margin-bottom: 20px
+        font-size: 12px
+      &-vers
+        margin-bottom: 20px
+        &-item
+          font-size: 12px
+      &-tags
+        font-size: 12px

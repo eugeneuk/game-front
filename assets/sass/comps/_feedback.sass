@@ -1,0 +1,201 @@
+.fb
+  &__title
+    margin-bottom: 35px
+  display: flex
+  justify-content: space-between
+  flex-wrap: wrap
+  &-block
+    margin-bottom: 35px
+    width: 48%
+    &._full
+      width: 100%
+  &-label
+    margin-bottom: 12px
+    display: block
+    +bold
+    font-size: 13px
+    color: $text-dark
+  &-input
+    border: 1px solid $primary-back
+    border-radius: 10px
+    width: 100%
+    height: 46px
+    padding: 0 20px
+    +semibold
+    font-size: 13px
+    color: #b2b7c0
+    background-color: $primary-main
+    &::placeholder
+      color: #b2b7c0
+    &._disabled
+      border: 1px dotted $primary-back
+      +extrabold
+      font-size: 25px
+      color: $tertiary
+      background-color: #FFFFFF
+      &::placeholder
+        color: $tertiary
+  &-select
+    border: 1px solid $primary-back
+    border-radius: 10px
+    width: 100%
+    height: 46px
+    background-color: #FFFFFF
+    box-shadow: 0 10px 15px 1px rgba(0, 0, 0, 0.05)
+    cursor: pointer
+    &-arrow
+      position: absolute
+      right: 8px
+      top: 50%
+      transform: translateY(-50%)
+      border-radius: 50%
+      width: 27px
+      height: 27px
+      display: flex
+      align-items: center
+      justify-content: center
+      font-size: 9px
+      color: #979EA8
+      background-color: $primary-main
+    &-item
+      height: 46px
+      padding: 0 20px
+      display: flex
+      align-items: center
+      +semibold
+      font-size: 13px
+      color: #b2b7c0
+    &-list
+      border: 1px solid $primary-back
+      border-radius: 10px
+      max-height: calc(46px * 4)
+      overflow-y: auto
+      background-color: #FFFFFF
+      li
+        .fb-select-item
+          &:hover
+            background-color: $primary-main
+  &-textarea
+    border: 1px solid $primary-back
+    border-radius: 10px
+    width: 100%
+    height: 200px
+    padding: 15px 20px
+    +semibold
+    font-size: 13px
+    color: #b2b7c0
+    background-color: $primary-main
+    resize: none
+    &::placeholder
+      color: #b2b7c0
+  &-f
+    width: 100%
+    display: flex
+    align-items: flex-start
+    justify-content: space-between
+  &-attach
+    border: none
+    border-radius: 28px
+    height: 56px
+    padding: 0 20px
+    display: flex
+    align-items: center
+    background-color: $primary-main
+    cursor: pointer
+    transition: 0.2s
+    &:hover
+      background-color: darken($primary-main, 5%)
+      transform: scale(1.02)
+    input[type="file"]
+      display: none
+    &__icon
+      margin-right: 10px
+      svg
+        width: 20px
+        height: 20px
+        path
+          fill: $secondary
+    &__text
+      +bold
+      font-size: 13px
+      color: $text-dark
+    &__wrap
+      width: 50%
+      display: flex
+      align-items: center
+      flex-wrap: wrap
+    &-item
+      margin: 0 10px
+      display: flex
+      align-items: center
+      &__icon
+        margin-right: 12px
+        svg
+          width: 30px
+          path
+            fill: $tertiary
+      &__text
+        margin-right: 8px
+        +bold
+        font-size: 13px
+        color: #bec4cb
+        width: 115px
+        overflow: hidden
+        text-overflow: ellipsis
+        white-space: nowrap
+      &-loading
+        width: 22px
+  &-btnsend
+    border: none
+    border-radius: 30px
+    height: 60px
+    padding: 0 26px
+    display: flex
+    align-items: center
+    justify-content: center
+    +bold
+    font-size: 16px
+    cursor: pointer
+    box-shadow: 0 10px 10px 1px rgba($gradient-dark, 0.2)
+
+@media ( max-width: 768px )
+  .fb
+    &__title
+      text-align: center
+
+@media ( max-width: 520px )
+  .fb
+    &-block
+      margin-bottom: 12px
+      width: 100%
+    &-label
+      text-align: center
+      font-size: 11px
+    &-input
+      font-size: 11px
+    &-select
+      &-item
+        font-size: 11px
+    &-textarea
+      font-size: 11px
+    &-attach
+      height: 36px
+      padding: 0 15px
+      &__icon
+        margin-right: 5px
+        svg
+          width: 12px
+          height: 12px
+      &__text
+        font-size: 10px
+      &-item
+        margin-top: 10px
+        &__icon
+          width: 15px
+          height: 15px
+          svg
+            width: 100%
+    &-btnsend
+      height: 36px
+      padding: 0 15px
+      font-size: 11px

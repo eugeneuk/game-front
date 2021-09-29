@@ -1,0 +1,277 @@
+*
+  box-sizing: border-box
+
+::-webkit-scrollbar 
+  width: 5px
+  height: 5px
+
+::-webkit-scrollbar-track 
+  background: $primary-main
+
+::-webkit-scrollbar-thumb
+  background: linear-gradient(-90deg, $gradient-dark 0%, $gradient-light 100%)
+  border-radius: 10px
+
+* 
+  -webkit-tap-highlight-color: transparent
+
+a
+  color: inherit
+  text-decoration: none
+
+input, textarea, button
+  &:focus
+    outline: none
+
+.noscroll
+  overflow-y: hidden
+
+.root
+  &__bg
+    padding: 0 5%
+    background: #ECF4FC url(../assets/main-bg.png) no-repeat
+    background-size: 100%
+    background-position: center top
+  &-container
+    padding-bottom: 35px
+    margin: 0 auto
+    max-width: 1500px
+    background-color: #fff
+    box-shadow: 0px 0px 30px 10px #DEE8F1
+  &__inner
+    padding: 35px
+    min-height: 100vh
+
+.btn
+  background: linear-gradient(0deg, $gradient-dark 0%, $gradient-light 100%)
+  color: #FFFFFF
+  transition: 0.2s
+  &:hover
+    transform: scale(1.03)
+    background: linear-gradient(0deg, darken($gradient-dark, 5%) 0%, darken($gradient-light, 5%) 100%)
+
+.logo
+  display: flex
+  align-items: center
+  transition: 0.3s
+  &:hover
+    position: relative
+    transform: translateY(-2px)
+  &__text
+    margin-right: 5px
+    +extrabold
+    text-transform: uppercase
+    font-size: 23px
+    color: #252a30
+
+.title
+  margin-top: 0
+  +extrabold
+  font-size: 25px
+  color: $text-dark
+
+.switch-box
+  display: none
+  &.active
+    display: block
+
+.dd
+  position: relative
+  &.active
+    .dd-list
+      display: block
+  &-list
+    display: none
+    position: absolute
+    top: 100%
+    left: 0
+    z-index: 999
+    min-width: 100%
+    list-style: none
+    margin: 0
+    padding: 0
+
+.checkbox
+  border-radius: 5px
+  border: 1px solid $primary-back
+  width: 17px
+  height: 17px
+  display: flex
+  align-items: center
+  justify-content: center
+  background-color: $primary-main
+  &-check
+    display: none
+    svg
+      width: 90%
+      path
+        fill: $tertiary
+  input[type="checkbox"]
+    display: none
+    &:checked + .checkbox-check
+      display: block
+
+.breads
+  margin-bottom: 25px
+  border-radius: 23px
+  min-height: 46px
+  padding: 10px 23px
+  display: flex
+  align-items: center
+  flex-wrap: wrap
+  background-color: #F8FBFE
+  &-link
+    padding: 5px
+    +semibold
+    font-size: 13px
+    color: #cbced1
+    &:hover
+      color: $tertiary
+    &._current
+      +bold
+      color: $tertiary
+  &-sep
+    margin: 0 8px
+    +semibold
+    font-size: 13px
+    color: #cbced1
+
+.table
+  width: 100%
+  border-collapse: collapse
+  &__wrapper
+    border-radius: 25px
+    padding: 25px 22px 25px 30px
+    background-color: $primary-main
+  &__frame
+    height: 400px
+    overflow-y: auto
+    padding-right: 20px
+  th
+    text-align: center
+    +semibold
+    padding: 12px 20px
+    font-size: 13px
+    color: #959aa0
+    &:first-child
+      text-align: left
+    &:last-child
+      text-align: right
+  tbody
+    tr
+      &:nth-child(odd)
+        background-color: #EEF2F5 
+  td
+    padding: 12px 20px
+    text-align: center
+    +bold
+    font-size: 13px
+    color: #959aa0
+    &:first-child
+      border-top-left-radius: 30px
+      border-bottom-left-radius: 30px
+      text-align: left
+    &:last-child
+      border-top-right-radius: 30px
+      border-bottom-right-radius: 30px
+      text-align: right
+    &.blue
+      +extrabold
+      color: $secondary
+  .status
+    &__inner
+      display: flex
+      align-items: center
+      justify-content: center
+    &-icon
+      margin-right: 7px
+      width: 15px
+    &._success
+      .status-icon
+        path
+          fill: $green
+      .status-text
+        color: $green
+    &._error
+      .status-icon
+        path
+          fill: $red
+      .status-text
+        color: $red
+  &-mobile
+    display: none
+
+
+@media ( max-width: 1367px )
+  .root
+    &__bg
+      padding: 0 7%
+      background-size: 112%
+
+@media ( max-width: 991px )
+  .root
+    &__bg
+      padding: 0
+      background: none
+    &-container
+      max-width: none
+      box-shadow: none
+    &__inner
+      padding: 20px
+
+@media ( max-width: 768px )
+  .title
+    font-size: 18px
+
+  .table-mobile
+    margin-bottom: 15px
+    display: block
+    border-radius: 10px
+    padding: 15px
+    background-color: $primary-main
+    &-row
+      border-bottom: 1px solid #EDF2F9
+      display: flex
+      align-items: center
+      justify-content: space-between
+      padding: 8px 0
+      &:first-child
+        padding-top: 0
+      &:last-child
+        padding-bottom: 0
+        border-bottom: none
+    .label
+      +semibold
+      font-size: 9px
+      color: #a5adb8
+    .value
+      +bold
+      font-size: 10px
+      color: #a5adb8
+      &.blue
+        +extrabold
+        color: $secondary
+    .status
+      display: flex
+      align-items: center
+      justify-content: center
+      &-icon
+        margin-right: 7px
+        width: 15px
+      &._success
+        .status-icon
+          path
+            fill: $green
+        .status-text
+          color: $green
+      &._error
+        .status-icon
+          path
+            fill: $red
+        .status-text
+          color: $red
+
+@media ( max-width: 520px )
+  .root
+    &__inner
+      padding: 10px

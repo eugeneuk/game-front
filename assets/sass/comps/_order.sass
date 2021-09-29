@@ -1,0 +1,527 @@
+.or
+  &__wrap
+    display: flex
+    justify-content: space-between
+  &-col
+    width: 48%
+  &__title
+    margin-bottom: 8px
+  &-linkback
+    +semibold
+    font-size: 15px
+    color: #a5a8ac
+    &:hover
+      color: $tertiary
+  &-info
+    margin: 48px 0 30px
+    &-row
+      border-radius: 20px
+      padding: 16px
+      display: flex
+      align-items: center
+      justify-content: space-between
+      &:nth-child(odd)
+        background-color: #FFFFFF
+      &:nth-child(even)
+        background-color: $primary-main
+    &-label
+      +bold
+      font-size: 13px
+      color: #a5a8ac
+    &-value
+      +bold
+      font-size: 13px
+      color: $text-dark
+  &-res
+    &__title
+      margin-bottom: 24px
+      +extrabold
+      font-size: 18px
+      color: $text-dark
+    &__wrap
+      position: relative
+      padding-right: 10px
+      height: 500px
+      overflow-y: auto
+    &__inner
+      padding-bottom: 90px
+    &-shadow
+      position: sticky
+      left: 0
+      bottom: 0
+      width: 100%
+      height: 1px
+      box-shadow: 0 -20px 100px 80px rgba(#FFFFFF, 1)
+    .res
+      border-bottom: 1px dotted #DADADA
+      padding: 18px 0
+      display: flex
+      align-items: center
+      &__inner
+        flex-grow: 1
+      &-pic
+        max-width: 80%
+        &__wrap
+          margin-right: 14px
+          flex-shrink: 0
+          border-radius: 28px
+          border: 4px solid #EBF0F5
+          width: 56px
+          height: 56px
+          display: flex
+          align-items: center
+          justify-content: center
+      &-h
+        margin-bottom: 5px
+        display: flex
+        align-items: center
+        justify-content: space-between
+      &-username
+        +extrabold
+        font-size: 15px
+        color: $tertiary
+        &:hover
+          text-decoration: underline
+      &-date
+        +semibold
+        font-size: 13px
+        color: #a5a8ac
+      &-text
+        margin-bottom: 10px
+        +bold
+        font-size: 13px
+        color: $text-dark
+      &-f
+        display: flex
+        align-items: center
+        flex-wrap: wrap
+      &-game
+        margin-right: 10px
+        +bold
+        font-size: 13px
+        color: $secondary
+      &-amount
+        +bold
+        font-size: 13px
+        color: $tertiary
+  &-chat
+    height: 317px
+    padding: 15px 0
+    &-btntoggle
+      display: none
+    &__inner
+      min-height: 100%
+    &__wrap
+      border-radius: 20px
+      border: 2px solid $primary-main
+      padding: 5px
+      .prof
+        margin-right: 10px
+        display: flex
+        align-items: center
+        &-avatar
+          position: relative
+          margin-right: 14px
+          width: 60px
+          height: 60px
+          &-pic
+            border-radius: 50%
+            max-width: 100%
+            width: 100%
+        &-status
+          position: absolute
+          top: 0
+          right: 0
+          border-radius: 50%
+          border: 3px solid $primary-main
+          width: 15px
+          height: 15px
+          &._green
+            background-color: $green
+          &._blue
+            background-color: $secondary
+          &._yellow
+            background-color: $tertiary
+          &._red
+            background-color: $red
+          &._light-gray
+            background-color: #b9bdc2
+        &-username
+          +bold
+          font-size: 15px
+          color: $text-dark
+          line-height: 1.5
+          &:hover
+            text-decoration: underline
+        &-subinfo
+          +semibold
+          line-height: 1.5
+          font-size: 13px
+        ._green
+          color: $green
+        ._blue
+          color: $secondary
+        ._yellow
+          color: $tertiary
+        ._red
+          color: $red
+        ._light-gray
+          color: #b9bdc2
+    &-h
+      border-radius: 20px
+      padding: 16px 28px 16px 16px
+      display: flex
+      align-items: center
+      justify-content: space-between
+      background-color: $primary-main
+      &-bar
+        display: flex
+        align-items: center
+      &-btn
+        margin: 0 6px
+        border: 2px solid #E2E8EE
+        border-radius: 50%
+        width: 28px
+        height: 28px
+        display: flex 
+        align-items: center
+        justify-content: center
+        cursor: pointer
+        &:hover
+          background-color: darken(#EFEFEF, 5%)
+        &__icon
+          max-width: 100%
+    &-placeholder
+      width: 100%
+      height: inherit
+      display: flex
+      align-items: center
+      justify-content: center
+      text-align: center
+      +semibold
+      font-size: 13px
+      color: #a5a8ac
+    &-bar
+      border-radius: 30px
+      border: 2px solid $primary-main
+      height: 48px
+      padding: 0 17px
+      display: flex
+      align-items: center
+      justify-content: space-between
+      &-textarea
+        flex-grow: 1
+        border: none
+        height: 100%
+        padding-top: 12px
+        +bold
+        font-size: 12px
+        color: #c6c7c9
+        resize: none
+        &::placeholder
+          color: #c6c7c9
+      &-send
+        border: none
+        width: 22px
+        height: 22px
+        padding: 0
+        background-color: transparent
+        cursor: pointer
+        transition: 0.2s
+        &:hover
+          transform: translateX(2px)
+        svg
+          width: 22px
+          path
+            fill: $secondary
+    
+      
+.pay
+  margin-bottom: 35px
+  border-radius: 25px
+  padding: 24px 26px
+  background-color: $primary-main
+  &-title
+    margin-bottom: 20px
+    +bold
+    font-size: 13px
+    color: #a5a8ac
+  &-select
+    margin-bottom: 22px
+    border-radius: 22px
+    height: 44px
+    display: flex
+    align-items: center
+    background-color: #FFFFFF
+    box-shadow: 0px 10px 15px 1px rgba(0, 0, 0, 0.1)
+    user-select: none
+    &.active
+      box-shadow: none
+    &-item
+      width: 100%
+      height: 44px
+      padding: 0 15px
+      display: flex
+      align-items: center
+      cursor: pointer
+    &-icon
+      margin-right: 13px
+    &-label
+      +bold
+      font-size: 13px
+      color: $text-dark
+    &-bar
+      position: absolute
+      top: 50%
+      right: 10px
+      transform: translateY(-50%)
+      display: flex
+      align-items: center
+    &-amount
+      margin-right: 15px
+      +extrabold
+      font-size: 14px
+      color: $text-dark
+      user-select: text
+    &-arrow
+      border-radius: 50%
+      width: 27px
+      height: 27px
+      display: flex
+      align-items: center
+      justify-content: center
+      font-size: 9px
+      color: #979EA8
+      background-color: $primary-main
+      cursor: pointer
+    &-list
+      border-radius: 25px
+      overflow: hidden
+      background-color: #FFFFFF
+      box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.1)
+      .pay-select-item
+        &:hover
+          background-color: darken(#FFFFFF, 5%)
+  &-f
+    display: flex
+    align-items: center
+    justify-content: space-between
+    flex-wrap: wrap
+  &-balance
+    +bold
+    font-size: 13px
+    color: #a5a8ac
+    .value
+      +extrabold
+      font-size: 14px
+      color: $secondary
+    &__wrap
+      border-radius: 24px
+      height: 48px
+      padding: 0 20px
+      display: flex
+      align-items: center
+      justify-content: center
+      background-color: #EDF2F8
+      &._with-btn
+        margin-bottom: 10px
+        padding-right: 0
+        .value
+          color: #a5a8ac
+        .pay-balance
+          display: flex
+          align-items: center
+  &-add
+    margin-left: 10px
+    border-radius: 24px
+    border: none
+    height: 48px
+    padding: 0 20px
+    display: flex
+    align-items: center
+    justify-content: center
+    +bold
+    font-size: 14px
+    background-color: $red
+    color: #FFFFFF
+    box-shadow: 0px 10px 12px 1px rgba($red, 0.25)
+    cursor: pointer
+    transition: 0.2s
+    &:hover
+      background-color: darken($red, 8%)
+      transform: scale(1.03)
+  &-submit
+    border: none
+    border-radius: 24px
+    height: 48px
+    padding: 0 23px
+    +bold
+    font-size: 14px
+    cursor: pointer
+    box-shadow: 0px 10px 15px 1px rgba($tertiary, 0.3)
+    &:disabled
+      background: #EDF2F8
+      color: #d3d7de
+      box-shadow: none
+      cursor: not-allowed
+
+@media ( max-width: 1200px )
+  .or
+    &__wrap
+      flex-direction: column
+    &-col
+      margin-bottom: 20px
+      width: 100%
+
+@media ( max-width: 520px )
+  .or
+    &__title
+      margin-bottom: 20px
+      text-align: center
+    &-linkback
+      display: none
+    &-info
+      margin-top: 20px
+      margin-bottom: 25px
+      &-row
+        padding: 12px 16px
+      &-label, &-value
+        font-size: 10px
+    &-res
+      margin-bottom: 20px
+      &__title
+        text-align: center
+        font-size: 14px
+      &__wrap
+        height: 220px
+      &__inner
+        padding-bottom: 0
+      &-shadow
+        display: none
+      .res
+        &-pic
+          max-width: 50%
+          &__wrap
+            margin-right: 8px
+            width: 35px
+            height: 35px
+        &-h
+          flex-wrap: wrap
+        &-username
+          font-size: 11px
+        &-date
+          font-size: 10px
+        &-text
+          margin-bottom: 5px
+          font-size: 9px
+        &-game, &-amount
+          font-size: 10px
+    &-chat
+      height: 150px
+      &-btntoggle
+        margin-bottom: 3px
+        display: block
+        border: none
+        border-radius: 10px
+        width: 100%
+        height: 36px
+        text-transform: uppercase
+        +extrabold
+        font-size: 11px
+      &__wrap
+        border-radius: 10px
+        padding: 0
+        &.hidden
+          display: none
+        .prof
+          &-avatar
+            margin-right: 10px
+            width: 40px
+            height: 40px
+          &-status
+            width: 13px
+            height: 13px
+          &-username
+            font-size: 12px
+            line-height: 1.2
+          &-subinfo
+            font-size: 10px
+            line-height: 1.2
+      &-h
+        border-radius: 8px
+        padding: 10px
+        &-btn
+          width: 20px
+          height: 20px
+          padding: 0
+          background-color: $primary-main
+          &__icon
+            max-width: 80%
+            max-height: 80%
+      &-placeholder
+        font-size: 10px
+      &-bar
+        border-radius: 10px
+        margin: 3px
+        height: 35px
+        padding: 0 10px
+        &-textarea
+          padding-top: 10px
+          font-size: 9px
+        &-send
+          width: 15px
+          height: 15px
+          svg
+            width: 15px
+        
+
+  .pay
+    margin-bottom: 40px
+    padding: 24px 15px 0
+    &-title
+      margin-right: 12px
+      font-size: 11px
+    &-select
+      height: 30px
+      &-item
+        height: 30px
+        &.selected
+          width: 60%
+          padding-right: 0
+      &-icon
+        margin-right: 6px
+        width: 16px
+      &-label
+        font-size: 10px
+      &-amount
+        font-size: 11px
+      &-arrow
+        width: 18px
+        height: 18px
+        font-size: 5px
+    &-f
+      flex-direction: column
+    &-balance
+      font-size: 11px
+      width: 100%
+      justify-content: space-between
+      text-align: center
+      &__wrap
+        margin-bottom: 0px
+        width: 100%
+        height: 34px
+        &._with-btn
+          padding-left: 10px
+    &-add
+      height: 34px
+      font-size: 10px
+      padding: 0 10px
+    &-submit
+      transform: translateY(50%)
+      height: 38px
+      padding: 0 15px
+      font-size: 11px
+
+
+
+

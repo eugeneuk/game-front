@@ -1,0 +1,437 @@
+.gd
+  &__title
+    margin-bottom: 35px
+  &-switch
+    margin-bottom: 40px
+    display: flex
+    align-items: center
+    &-item
+      margin-right: 16px
+      border-radius: 15px
+      height: 56px
+      padding: 0 30px
+      display: flex
+      align-items: center
+      justify-content: center
+      background-color: $primary-main
+      +bold
+      font-size: 15px
+      color: $text-dark
+      cursor: pointer
+      transition: 0.2s
+      &:hover
+        &:not(.active)
+          background-color: darken($primary-main, 5%)
+      &.active
+        background-color: $secondary
+        color: #FFFFFF
+        box-shadow: 0 10px 15px 2px rgba($secondary, 0.2)
+  &-bar
+    display: flex
+    align-items: center
+    flex-wrap: wrap
+  &-search
+    margin-bottom: 30px
+    margin-right: 16px
+    display: flex
+    border-radius: 20px
+    height: 40px
+    padding: 0 12px
+    background-color: $primary-main
+    &__input
+      flex-grow: 1
+      border: none
+      height: 100%
+      +semibold
+      font-size: 11px
+      color: #abaeb3
+      background-color: $primary-main
+      &::placeholder
+        color: #abaeb3
+    &__icon
+      width: 16px
+      path
+        fill: $secondary
+  &-select
+    margin-bottom: 30px
+    margin-right: 16px
+    border-radius: 20px
+    border: 2px solid $primary-main
+    min-width: 120px
+    height: 40px
+    padding-right: 10px
+    display: flex
+    align-items: center
+    justify-content: space-between
+    background-color: #FFFFFF
+    user-select: none
+    &-item
+      height: 40px
+      padding: 15px
+      display: flex
+      align-items: center
+      +bold
+      font-size: 13px
+      color: $text-dark
+      cursor: pointer
+    &-arrow
+      margin-left: 10px
+      transform: translateY(1px)
+      font-size: 9px
+      height: 100%
+      display: flex
+      align-items: center
+      color: $secondary
+      cursor: pointer
+    &-list
+      z-index: 5
+      overflow: hidden
+      border-radius: 20px
+      border: 2px solid $primary-main
+      background-color: #FFFFFF
+      .gd-select-item
+        &:hover
+          background-color: darken(#FFFFFF, 4%)
+  &-checkbox
+    border-radius: 11px
+    width: 41px
+    height: 22px
+    padding: 0 5px
+    display: flex
+    align-items: center
+    background-color: #F0F4F8
+    &__wrap
+      margin-bottom: 30px
+      display: flex
+      align-items: center
+      cursor: pointer
+    &__label
+      margin-right: 5px
+      +bold
+      font-size: 13px
+      color: $text-dark
+    input[type="checkbox"]
+      display: none
+      &:checked + .gd-checkbox-toggle
+        transform: translateX(16px)
+    &-toggle
+      border-radius: 50%
+      width: 15px
+      height: 15px
+      background-color: $secondary
+      transition: 0.2s
+  &-btn-sell
+    margin-bottom: 30px
+    margin-left: auto
+    border: none
+    border-radius: 20px
+    height: 40px
+    padding: 0 13px
+    display: flex
+    align-items: center
+    justify-content: center
+    cursor: pointer
+    &__icon
+      margin-right: 15px
+    &__text
+      +bold
+      font-size: 13px
+      color: #FFFFFF
+  &-table
+    width: 100%
+    border-collapse: collapse
+    &__wrapper
+      border-radius: 25px
+      background-color: #FFFFFF
+    &__frame
+      height: 580px
+      overflow-y: auto
+      padding-right: 20px
+    th
+      text-align: center
+      +semibold
+      padding: 20px
+      font-size: 13px
+      color: #a5adb8
+      &:first-child
+        text-align: left
+      &:last-child
+        text-align: right
+    tbody
+      tr
+        &:nth-child(odd)
+          background-color: #F2F7FD
+    td
+      padding: 12px
+      text-align: center
+      +bold
+      font-size: 15px
+      color: $text-dark
+      &:first-child
+        border-top-left-radius: 15px
+        border-bottom-left-radius: 15px
+        text-align: left
+      &:last-child
+        border-top-right-radius: 15px
+        border-bottom-right-radius: 15px
+        text-align: right
+        padding-right: 25px
+      &.blue
+        +extrabold
+        color: $secondary
+    .item
+      &__inner
+        display: flex
+        align-items: center
+      &-pic
+        border-radius: 10px
+        margin-right: 14px
+      &-name
+        +bold
+        font-size: 15px
+        color: $text-dark
+    .prof
+      margin-right: 10px
+      display: flex
+      align-items: center
+      justify-content: center
+      &-avatar
+        position: relative
+        margin-right: 14px
+        width: 50px
+        height: 50px
+        &-pic
+          border-radius: 50%
+          max-width: 100%
+          width: 100%
+      &-status
+        position: absolute
+        top: 0
+        right: 0
+        border-radius: 50%
+        border: 3px solid $primary-main
+        width: 15px
+        height: 15px
+        &._green
+          background-color: $green
+        &._blue
+          background-color: $secondary
+        &._yellow
+          background-color: $tertiary
+        &._red
+          background-color: $red
+        &._light-gray
+          background-color: #b9bdc2
+      &-username
+        text-align: left
+        +bold
+        font-size: 15px
+        color: $text-dark
+        line-height: 1.5
+        &:hover
+          text-decoration: underline
+      &-subinfo
+        text-align: left
+        +semibold
+        line-height: 1.5
+        font-size: 13px
+      ._green
+        color: $green
+        &:hover
+          color: darken($green, 15%)
+      ._blue
+        color: $secondary
+        &:hover
+          color: darken($secondary, 15%)
+      ._yellow
+        color: $tertiary
+        &:hover
+          color: darken($tertiary, 15%)
+      ._red
+        color: $red
+        &:hover
+          color: darken($red, 15%)
+      ._light-gray
+        color: #b9bdc2
+        &:hover
+          color: darken(#b9bdc2, 15%)
+    &-mobile
+      display: none
+
+@media ( max-width: 1367px )
+  .gd
+    &-search
+      margin-right: 10px
+    &-select
+      margin-right: 10px
+    &-checkbox
+      &__label
+        font-size: 11px
+    &-btn-sell
+      padding: 0 10px
+      &__icon
+        margin-right: 10px
+      &__text
+        font-size: 12px
+    &-table
+      td
+        font-size: 13px
+      .item
+        &-pic
+          margin-right: 10px
+          width: 35px
+        &-name
+          font-size: 13px
+      .prof
+        &-avatar
+          margin-right: 10px
+          width: 40px
+          height: 40px
+        &-status
+          width: 12px
+          height: 12px
+        &-username
+          font-size: 13px
+        &-subinfo
+          font-size: 11px
+
+@media ( max-width: 1200px )
+  .gd
+    &-checkbox
+      &__wrap
+        margin-right: 10px
+    &-btn-sell
+      margin-left: 0
+
+@media ( max-width: 768px )
+  .gd
+    &__title
+      text-align: center
+    &-switch
+      justify-content: space-between
+      &-item
+        margin-right: 0
+        width: 24%
+        height: 48px
+        font-size: 13px
+    &-table
+      &__frame
+        display: none
+        padding-right: 0
+      &-mobile
+        margin-bottom: 15px
+        display: block
+        border-radius: 10px
+        padding: 15px
+        background-color: $primary-main
+        &-row
+          border-bottom: 1px solid #EDF2F9
+          display: flex
+          align-items: center
+          justify-content: space-between
+          padding: 8px 0
+          &:first-child
+            padding-top: 0
+          &:last-child
+            padding-bottom: 0
+            border-bottom: none
+        .label
+          +semibold
+          font-size: 9px
+          color: #a5adb8
+        .value
+          +bold
+          font-size: 10px
+          color: #a5adb8
+          &.blue
+            +extrabold
+            color: $secondary
+        .prof
+          display: flex
+          align-items: center
+          flex-wrap: wrap
+          justify-content: flex-end
+          &-status
+            margin-right: 5px
+            border-radius: 50%
+            width: 6px
+            height: 6px
+            &._green
+              background-color: $green
+              box-shadow: 0 0 10px 1px rgba($green, 0.2)
+            &._red
+              background-color: $red
+              box-shadow: 0 0 10px 1px rgba($red, 0.2)
+          &-username
+            line-height: 1.5
+            flex-shrink: 0
+            margin-right: 3px
+            +extrabold
+            font-size: 11px
+            color: $text-dark
+          &-fb
+            line-height: 1.5
+            flex-shrink: 0
+            margin-right: 3px
+            +bold
+            font-size: 9px
+            color: $tertiary
+          &-regtime
+            line-height: 1.5
+            flex-shrink: 0
+            margin-right: 3px
+            +bold
+            font-size: 9px
+            color: #b9bdc2
+
+@media ( max-width: 520px )
+  .gd
+    &-bar
+      justify-content: space-between
+    &-search
+      display: none
+    &-switch
+      margin-bottom: 15px
+      &-item
+        margin-right: 0
+        border-radius: 5px
+        width: 23%
+        height: 28px
+        padding: 0 6px
+        font-size: 9px
+    &-select
+      margin-right: 0
+      margin-bottom: 15px
+      width: 48%
+      height: 28px
+      &-item
+        height: 28px
+        font-size: 9px
+    &-checkbox
+      flex-shrink: 0
+      width: 33px
+      height: 19px
+      &__wrap
+        margin-bottom: 15px
+        margin-right: 0
+        width: 35%
+      &__label
+        text-align: right
+        font-size: 9px
+      &-toggle
+        width: 13px
+        height: 13px
+      input[type="checkbox"]
+        &:checked + .gd-checkbox-toggle
+          transform: translateX(10px)
+    &-btn-sell
+      margin-bottom: 15px
+      width: 60%
+      height: 32px
+      padding: 0 10px
+      &__icon
+        margin-right: 6px
+        width: 17px
+      &__text
+        font-size: 9px
+
