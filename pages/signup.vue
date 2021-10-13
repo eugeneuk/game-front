@@ -1,6 +1,9 @@
 <template>
   <div class="sign__wrap">
     <h1 class="title sign__title">Регистрация нового аккаунта</h1>
+    <div class="error" style="text-align: center" if="error.message">
+      {{ error.message }}
+    </div>
     <form action="#" class="sign">
       <div class="sign-block">
         <p class="error" v-if="error.name">Name is required</p>
@@ -222,6 +225,7 @@ export default {
         password: false,
         password_confirmation: false,
         much: false,
+        message: null,
       },
       accept_rules: false,
     };
@@ -281,15 +285,29 @@ export default {
 
       if (this.validate()) {
         axios
-          .post(process.env.API_URL + "register", formData)
+          .post(process.env.API_URL + "register", formData, {
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+            },
+          })
           .then((res) => {
-            this.$store.commit("setToken", res.data.access_token);
+            console.log(res);
+            //this.$store.commit("setToken", res.data.access_token);
             localStorage._token = res.data.access_token;
+            localStorage.created_at = res.data.user.created_at;
+            localStorage.username = res.data.user.name;
+            localStorage.email = res.data.user.email;
+            localStorage.avatar = res.data.user.image;
+             localStorage.description = res.data.user.description;
 
             this.$router.push("/profile");
           })
-          .catch((err) => {
-            console.log(err);
+          .catch((error) => {
+            if (error.response) {
+              console.log(error.response.data.data.message);
+              this.error.message = error.response.data.data.message;
+            }
           });
       }
     },

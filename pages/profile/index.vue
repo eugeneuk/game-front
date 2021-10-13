@@ -2,7 +2,7 @@
   <div class="pr">
     <div class="pr-top">
       <h1 class="title pr__title">
-        Профиль <span class="username">Aero Smitt</span>
+        Профиль <span class="username" >{{ name }}</span>
       </h1>
       <div class="pr-regdate">
         <img
@@ -18,12 +18,12 @@
     <div class="pr-h">
       <div class="prof">
         <img
-          src="~/assets/assets/user-avatar-example4.png"
+          :src="avatar"
           alt="example"
           class="prof-avatar"
         />
         <div class="prof-info">
-          <a href="#" class="prof-username">Aero Smitt</a>
+          <a href="/profile/settings" class="prof-username">{{ name }}</a>
           <div class="prof-status">
             <div class="prof-status__icon _green"></div>
             <div class="prof-status__text">Сейчас в сети</div>
@@ -1723,6 +1723,23 @@ export default {
     if (localStorage._token == null) {
       return (location.href = "/");
     }
+  },
+  data() {
+    return {
+      avatar: '',
+      name: null,
+      email: null,
+      description: null,
+    };
+  },
+
+  mounted() {
+    this.name = localStorage.username;
+    this.email = localStorage.email;
+    this.description = localStorage.description;
+    
+    this.avatar = process.env.BASE_URL + 'storage' + localStorage.avatar
+
   },
 };
 </script>

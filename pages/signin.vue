@@ -162,6 +162,7 @@ export default {
       //  formData.append("name", this.user.name);
       formData.append("email", this.user.email);
       formData.append("password", this.user.password);
+      
 
       if (this.validate) {
         axios
@@ -169,7 +170,16 @@ export default {
           .then((res) => {
             console.log(res.data.access_token);
             localStorage._token = res.data.access_token;
-            this.$store.commit("setToken", res.data.access_token);
+            
+            localStorage.created_at = res.data.user.created_at;
+            localStorage.username = res.data.user.name;
+            localStorage.email = res.data.user.email;
+            localStorage.avatar = res.data.user.image;
+            localStorage.description = res.data.user.description;
+
+
+
+            //this.$store.commit("setToken", res.data.access_token);
 
             this.$router.push("/profile");
           })

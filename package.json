@@ -12,7 +12,10 @@
     "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/pwa": "^3.3.5",
     "core-js": "^3.15.1",
-    "nuxt": "^2.15.7"
+    "nuxt": "^2.15.7",
+    "vue-avatar-editor-improved": "^1.0.7",
+    "vue-cropperjs": "^4.2.0",
+    "vue-toasted": "^1.1.28"
   },
   "devDependencies": {
     "@nuxtjs/dotenv": "^1.4.1"

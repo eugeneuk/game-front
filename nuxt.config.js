@@ -1,4 +1,5 @@
 export default {
+  
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'GoodShop',
@@ -13,8 +14,9 @@ export default {
     ],
     script: [
       {
-        src: "@/assets/js/monileMenu.js",
-        src: "@/assets/js/tabs.js",
+        src: "/js/monileMenu.js",
+       
+        //src: "~/assets/js/tabs.js",
       },
     ],
   },
@@ -58,5 +60,6 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-  }
+  },
+  target: 'static' // default is 'server'
 }
