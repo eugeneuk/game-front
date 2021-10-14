@@ -1,5 +1,8 @@
 <template>
-  <div class="pr">
+<div>
+
+<div class="pr" v-if="loaded">
+    
     <div class="pr-top">
       <h1 class="title pr__title">
         Профиль <span class="username" >{{ name }}</span>
@@ -1715,17 +1718,38 @@
       </div>
     </div>
   </div>
+  <div v-else style="position:absolute; top:30%; left:50%">
+    <img src="/loader.gif" alt="">
+  </div>
+
+
+</div>  
 </template>
 
 <script>
+import  axios  from "axios";
 export default {
+  ssr: false,
+  loadingIndicator: {
+    name: 'circle',
+    color: '#3B8070',
+    background: 'white'
+  },
+  computed:{
+      hasToken(){
+          return this.$store.getters.hasToken
+      }
+  },
   beforeMount() {
+    
     if (localStorage._token == null) {
-      return (location.href = "/");
+      this.$router.push("/signin");
     }
   },
   data() {
     return {
+      loaded:false,
+      user:{},
       avatar: '',
       name: null,
       email: null,
@@ -1734,12 +1758,41 @@ export default {
   },
 
   mounted() {
+    this.auth()
+    
     this.name = localStorage.username;
     this.email = localStorage.email;
     this.description = localStorage.description;
     
     this.avatar = process.env.BASE_URL + 'storage' + localStorage.avatar
-
+    
   },
-};
+
+  methods:{
+    
+
+    auth(){
+      //mounted() {
+      //this.auth()
+      const config = {headers: { Authorization: `Bearer ${localStorage._token}` , 'Accept': 'application/json' }};
+        axios
+           .post(process.env.API_URL + 'checkAuth', '', config)
+           .then(res => {
+             if(! res.data.success == true ){
+                 this.$router.push("/signin");
+             }
+             this.loaded = true;
+             console.log('auth: ' + res.data.success)
+           })
+           .catch(e => {
+               this.$router.push("/signin");
+           })
+    }
+
+
+
+  }
+
+
+}
 </script>

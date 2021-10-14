@@ -179,7 +179,7 @@ export default {
 
 
 
-            //this.$store.commit("setToken", res.data.access_token);
+            this.$store.commit("setToken", res.data.access_token);
 
             this.$router.push("/profile");
           })

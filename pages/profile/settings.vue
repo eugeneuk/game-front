@@ -275,6 +275,7 @@
         }
     },
     mounted() {
+      this.auth()
       this.name = localStorage.username;
       this.email = localStorage.email;
       this.avatar = process.env.BASE_URL + 'storage' + localStorage.avatar
@@ -282,6 +283,25 @@
     },
 
     methods:{
+
+      auth(){
+      //mounted() {
+      //this.auth()
+        const config = {headers: { Authorization: `Bearer ${localStorage._token}` , 'Accept': 'application/json' }};
+          axios
+            .post(process.env.API_URL + 'checkAuth', '', config)
+            .then(res => {
+              if(! res.data.success == true ){
+                  this.$router.push("/signin");
+              }
+              
+              console.log('auth: ' + res.data.success)
+            })
+            .catch(e => {
+                this.$router.push("/signin");
+            })
+        },
+
         previewFiles: function(ev) {
           let image = ev.target.files[0]
           this.readMyFile(image)
@@ -380,7 +400,7 @@
                   Authorization: `Bearer ${localStorage._token}`
                   
                  }
-            };
+            }
             axios
             .post(process.env.API_URL + 'profile/email-update', formData, config)
             .then(res => {

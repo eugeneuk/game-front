@@ -1,29 +1,29 @@
-export const state = () =>({
-  token: false
+export const state = () => ({
+    token: null
 })
 
+// Setters
 export const mutations = {
-  setToken(state, token){
-    state.token = token
-  },
-  clearToken(state){
-    state.token = null
-  }
+    setToken(state, token){
+        state.token = token
+    },
+    clearToken(state){
+        state.token = null
+    }
 }
 
-export const actions = {
-  login({commit}){
-    commit('setToken', 'truetoken')
-  },
-  logout({commit}){
-    commit('clearToken')
-  }
-}
-
+// Getters
 export const getters = {
-  hasToken: s => !!s.token,
-  token: s=> s.token
+    hasToken: s => !!s.token,
+    showToken:s=>s.token
 }
 
-
-
+//Actions
+export const actions = {
+    login({commit}){
+        commit('setToken', 'sometoken')
+    },
+    logout({commit}){
+        commit('clearToken')
+    },
+}
