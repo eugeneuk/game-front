@@ -1,6 +1,7 @@
 <template>
+<div>
 
- <div class="set__wrap">
+   <div class="set__wrap" v-if="loaded">
           <h1 class="title set__title">Настройки аккаунта</h1>
 
 
@@ -233,6 +234,12 @@
           
         </div>
 
+    <div v-else style="position:absolute; top:30%; left:50%">
+      <img src="/loader.gif" alt="" />
+    </div>
+</div>
+
+
 </template>
 
 
@@ -272,6 +279,7 @@
           name_show: false,
           newName:'',
           newDescription: '',
+          loaded: false,
         }
     },
     mounted() {
@@ -294,7 +302,7 @@
               if(! res.data.success == true ){
                   this.$router.push("/signin");
               }
-              
+              this.loaded = true;
               console.log('auth: ' + res.data.success)
             })
             .catch(e => {

@@ -15,6 +15,9 @@ export default {
     script: [
       {
         src: "/js/monileMenu.js",
+        //src: "/js/tabs.js",
+        src: "/js/dropdown.js",
+       
        
         //src: "~/assets/js/tabs.js",
       },

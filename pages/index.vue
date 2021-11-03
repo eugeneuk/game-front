@@ -1,10 +1,10 @@
 <template>
   <div class="main__wrap">
     <div class="alph">
-      <a href="#" class="ltr active">а</a>
-      <a href="#" class="ltr">б</a>
-      <a href="#" class="ltr">в</a>
-      <a href="#" class="ltr">г</a>
+      <a href="#a" class="ltr active">а</a>
+      <a href="#b" class="ltr">б</a>
+      <a href="#c" class="ltr">в</a>
+      <a href="#d" class="ltr">г</a>
       <a href="#" class="ltr">д</a>
       <a href="#" class="ltr">е</a>
       <a href="#" class="ltr">ё</a>
@@ -37,7 +37,7 @@
     </div>
     <div class="main">
       <div class="main__inner">
-        <div class="card__wrap">
+        <div class="card__wrap" v-for="item in games" :key="item.id" >
           <div class="card">
             <img
               src="~/assets/assets/card-pic-example.png"
@@ -45,8 +45,7 @@
               class="card-pic"
             />
             <div class="card-title">
-              <p>World of Warcraft</p>
-              <p>Burning crusade classic</p>
+                <NuxtLink :to="{ name: 'game-id', params: { id: item.id }}"><p>{{item.name}}</p></NuxtLink>
             </div>
             <div class="card-vers">
               <div class="card-vers-item">RU</div>
@@ -55,737 +54,58 @@
               <div class="card-vers-item">Free</div>
             </div>
             <div class="card-tags">
-              <a href="#" class="tag">Золото</a>
-              •
-              <a href="#" class="tag">Аккаунты</a>
-              •
-              <a href="#" class="tag">Прокачка</a>
-              <a href="#" class="tag">Подземелья</a>
-              •
-              <a href="#" class="tag">Рейды</a>
-              •
-              <a href="#" class="tag">Квесты</a>
-              •
-              <a href="#" class="tag">PvP</a>
-              <a href="#" class="tag">Экипировка</a>
-              •
-              <a href="#" class="tag">Прочее</a>
+              <a href="#" class="tag" v-for="type in types" :key="type.id">{{type.name}}</a>
+              
             </div>
           </div>
         </div>
         <!-- /.card__wrap -->
-        <div class="card__wrap">
-          <div class="card">
-            <img
-              src="~/assets/assets/card-pic-example.png"
-              alt="example"
-              class="card-pic"
-            />
-            <div class="card-title">
-              <p>World of Warcraft</p>
-              <p>Burning crusade classic</p>
-            </div>
-            <div class="card-vers">
-              <div class="card-vers-item">RU</div>
-              <div class="card-vers-item">EN</div>
-              <div class="card-vers-item">UA</div>
-              <div class="card-vers-item">Free</div>
-            </div>
-            <div class="card-tags">
-              <a href="#" class="tag">Золото</a>
-              •
-              <a href="#" class="tag">Аккаунты</a>
-              •
-              <a href="#" class="tag">Прокачка</a>
-              <a href="#" class="tag">Подземелья</a>
-              •
-              <a href="#" class="tag">Рейды</a>
-              •
-              <a href="#" class="tag">Квесты</a>
-              •
-              <a href="#" class="tag">PvP</a>
-              <a href="#" class="tag">Экипировка</a>
-              •
-              <a href="#" class="tag">Прочее</a>
-            </div>
-          </div>
-        </div>
-        <!-- /.card__wrap -->
-        <div class="card__wrap">
-          <div class="card">
-            <img
-              src="~/assets/assets/card-pic-example.png"
-              alt="example"
-              class="card-pic"
-            />
-            <div class="card-title">
-              <p>World of Warcraft</p>
-              <p>Burning crusade classic</p>
-            </div>
-            <div class="card-vers">
-              <div class="card-vers-item">RU</div>
-              <div class="card-vers-item">EN</div>
-              <div class="card-vers-item">UA</div>
-              <div class="card-vers-item">Free</div>
-            </div>
-            <div class="card-tags">
-              <a href="#" class="tag">Золото</a>
-              •
-              <a href="#" class="tag">Аккаунты</a>
-              •
-              <a href="#" class="tag">Прокачка</a>
-              <a href="#" class="tag">Подземелья</a>
-              •
-              <a href="#" class="tag">Рейды</a>
-              •
-              <a href="#" class="tag">Квесты</a>
-              •
-              <a href="#" class="tag">PvP</a>
-              <a href="#" class="tag">Экипировка</a>
-              •
-              <a href="#" class="tag">Прочее</a>
-            </div>
-          </div>
-        </div>
-        <!-- /.card__wrap -->
-        <div class="card__wrap">
-          <div class="card">
-            <img
-              src="~/assets/assets/card-pic-example.png"
-              alt="example"
-              class="card-pic"
-            />
-            <div class="card-title">
-              <p>World of Warcraft</p>
-              <p>Burning crusade classic</p>
-            </div>
-            <div class="card-vers">
-              <div class="card-vers-item">RU</div>
-              <div class="card-vers-item">EN</div>
-              <div class="card-vers-item">UA</div>
-              <div class="card-vers-item">Free</div>
-            </div>
-            <div class="card-tags">
-              <a href="#" class="tag">Золото</a>
-              •
-              <a href="#" class="tag">Аккаунты</a>
-              •
-              <a href="#" class="tag">Прокачка</a>
-              <a href="#" class="tag">Подземелья</a>
-              •
-              <a href="#" class="tag">Рейды</a>
-              •
-              <a href="#" class="tag">Квесты</a>
-              •
-              <a href="#" class="tag">PvP</a>
-              <a href="#" class="tag">Экипировка</a>
-              •
-              <a href="#" class="tag">Прочее</a>
-            </div>
-          </div>
-        </div>
-        <!-- /.card__wrap -->
-        <div class="card__wrap">
-          <div class="card">
-            <img
-              src="~/assets/assets/card-pic-example.png"
-              alt="example"
-              class="card-pic"
-            />
-            <div class="card-title">
-              <p>World of Warcraft</p>
-              <p>Burning crusade classic</p>
-            </div>
-            <div class="card-vers">
-              <div class="card-vers-item">RU</div>
-              <div class="card-vers-item">EN</div>
-              <div class="card-vers-item">UA</div>
-              <div class="card-vers-item">Free</div>
-            </div>
-            <div class="card-tags">
-              <a href="#" class="tag">Золото</a>
-              •
-              <a href="#" class="tag">Аккаунты</a>
-              •
-              <a href="#" class="tag">Прокачка</a>
-              <a href="#" class="tag">Подземелья</a>
-              •
-              <a href="#" class="tag">Рейды</a>
-              •
-              <a href="#" class="tag">Квесты</a>
-              •
-              <a href="#" class="tag">PvP</a>
-              <a href="#" class="tag">Экипировка</a>
-              •
-              <a href="#" class="tag">Прочее</a>
-            </div>
-          </div>
-        </div>
-        <!-- /.card__wrap -->
-        <div class="card__wrap">
-          <div class="card">
-            <img
-              src="~/assets/assets/card-pic-example.png"
-              alt="example"
-              class="card-pic"
-            />
-            <div class="card-title">
-              <p>World of Warcraft</p>
-              <p>Burning crusade classic</p>
-            </div>
-            <div class="card-vers">
-              <div class="card-vers-item">RU</div>
-              <div class="card-vers-item">EN</div>
-              <div class="card-vers-item">UA</div>
-              <div class="card-vers-item">Free</div>
-            </div>
-            <div class="card-tags">
-              <a href="#" class="tag">Золото</a>
-              •
-              <a href="#" class="tag">Аккаунты</a>
-              •
-              <a href="#" class="tag">Прокачка</a>
-              <a href="#" class="tag">Подземелья</a>
-              •
-              <a href="#" class="tag">Рейды</a>
-              •
-              <a href="#" class="tag">Квесты</a>
-              •
-              <a href="#" class="tag">PvP</a>
-              <a href="#" class="tag">Экипировка</a>
-              •
-              <a href="#" class="tag">Прочее</a>
-            </div>
-          </div>
-        </div>
-        <!-- /.card__wrap -->
-        <div class="card__wrap">
-          <div class="card">
-            <img
-              src="~/assets/assets/card-pic-example.png"
-              alt="example"
-              class="card-pic"
-            />
-            <div class="card-title">
-              <p>World of Warcraft</p>
-              <p>Burning crusade classic</p>
-            </div>
-            <div class="card-vers">
-              <div class="card-vers-item">RU</div>
-              <div class="card-vers-item">EN</div>
-              <div class="card-vers-item">UA</div>
-              <div class="card-vers-item">Free</div>
-            </div>
-            <div class="card-tags">
-              <a href="#" class="tag">Золото</a>
-              •
-              <a href="#" class="tag">Аккаунты</a>
-              •
-              <a href="#" class="tag">Прокачка</a>
-              <a href="#" class="tag">Подземелья</a>
-              •
-              <a href="#" class="tag">Рейды</a>
-              •
-              <a href="#" class="tag">Квесты</a>
-              •
-              <a href="#" class="tag">PvP</a>
-              <a href="#" class="tag">Экипировка</a>
-              •
-              <a href="#" class="tag">Прочее</a>
-            </div>
-          </div>
-        </div>
-        <!-- /.card__wrap -->
-        <div class="card__wrap">
-          <div class="card">
-            <img
-              src="~/assets/assets/card-pic-example.png"
-              alt="example"
-              class="card-pic"
-            />
-            <div class="card-title">
-              <p>World of Warcraft</p>
-              <p>Burning crusade classic</p>
-            </div>
-            <div class="card-vers">
-              <div class="card-vers-item">RU</div>
-              <div class="card-vers-item">EN</div>
-              <div class="card-vers-item">UA</div>
-              <div class="card-vers-item">Free</div>
-            </div>
-            <div class="card-tags">
-              <a href="#" class="tag">Золото</a>
-              •
-              <a href="#" class="tag">Аккаунты</a>
-              •
-              <a href="#" class="tag">Прокачка</a>
-              <a href="#" class="tag">Подземелья</a>
-              •
-              <a href="#" class="tag">Рейды</a>
-              •
-              <a href="#" class="tag">Квесты</a>
-              •
-              <a href="#" class="tag">PvP</a>
-              <a href="#" class="tag">Экипировка</a>
-              •
-              <a href="#" class="tag">Прочее</a>
-            </div>
-          </div>
-        </div>
-        <!-- /.card__wrap -->
-        <div class="card__wrap">
-          <div class="card">
-            <img
-              src="~/assets/assets/card-pic-example.png"
-              alt="example"
-              class="card-pic"
-            />
-            <div class="card-title">
-              <p>World of Warcraft</p>
-              <p>Burning crusade classic</p>
-            </div>
-            <div class="card-vers">
-              <div class="card-vers-item">RU</div>
-              <div class="card-vers-item">EN</div>
-              <div class="card-vers-item">UA</div>
-              <div class="card-vers-item">Free</div>
-            </div>
-            <div class="card-tags">
-              <a href="#" class="tag">Золото</a>
-              •
-              <a href="#" class="tag">Аккаунты</a>
-              •
-              <a href="#" class="tag">Прокачка</a>
-              <a href="#" class="tag">Подземелья</a>
-              •
-              <a href="#" class="tag">Рейды</a>
-              •
-              <a href="#" class="tag">Квесты</a>
-              •
-              <a href="#" class="tag">PvP</a>
-              <a href="#" class="tag">Экипировка</a>
-              •
-              <a href="#" class="tag">Прочее</a>
-            </div>
-          </div>
-        </div>
-        <!-- /.card__wrap -->
-        <div class="card__wrap">
-          <div class="card">
-            <img
-              src="~/assets/assets/card-pic-example.png"
-              alt="example"
-              class="card-pic"
-            />
-            <div class="card-title">
-              <p>World of Warcraft</p>
-              <p>Burning crusade classic</p>
-            </div>
-            <div class="card-vers">
-              <div class="card-vers-item">RU</div>
-              <div class="card-vers-item">EN</div>
-              <div class="card-vers-item">UA</div>
-              <div class="card-vers-item">Free</div>
-            </div>
-            <div class="card-tags">
-              <a href="#" class="tag">Золото</a>
-              •
-              <a href="#" class="tag">Аккаунты</a>
-              •
-              <a href="#" class="tag">Прокачка</a>
-              <a href="#" class="tag">Подземелья</a>
-              •
-              <a href="#" class="tag">Рейды</a>
-              •
-              <a href="#" class="tag">Квесты</a>
-              •
-              <a href="#" class="tag">PvP</a>
-              <a href="#" class="tag">Экипировка</a>
-              •
-              <a href="#" class="tag">Прочее</a>
-            </div>
-          </div>
-        </div>
-        <!-- /.card__wrap -->
-        <div class="card__wrap">
-          <div class="card">
-            <img
-              src="~/assets/assets/card-pic-example.png"
-              alt="example"
-              class="card-pic"
-            />
-            <div class="card-title">
-              <p>World of Warcraft</p>
-              <p>Burning crusade classic</p>
-            </div>
-            <div class="card-vers">
-              <div class="card-vers-item">RU</div>
-              <div class="card-vers-item">EN</div>
-              <div class="card-vers-item">UA</div>
-              <div class="card-vers-item">Free</div>
-            </div>
-            <div class="card-tags">
-              <a href="#" class="tag">Золото</a>
-              •
-              <a href="#" class="tag">Аккаунты</a>
-              •
-              <a href="#" class="tag">Прокачка</a>
-              <a href="#" class="tag">Подземелья</a>
-              •
-              <a href="#" class="tag">Рейды</a>
-              •
-              <a href="#" class="tag">Квесты</a>
-              •
-              <a href="#" class="tag">PvP</a>
-              <a href="#" class="tag">Экипировка</a>
-              •
-              <a href="#" class="tag">Прочее</a>
-            </div>
-          </div>
-        </div>
-        <!-- /.card__wrap -->
-        <div class="card__wrap">
-          <div class="card">
-            <img
-              src="~/assets/assets/card-pic-example.png"
-              alt="example"
-              class="card-pic"
-            />
-            <div class="card-title">
-              <p>World of Warcraft</p>
-              <p>Burning crusade classic</p>
-            </div>
-            <div class="card-vers">
-              <div class="card-vers-item">RU</div>
-              <div class="card-vers-item">EN</div>
-              <div class="card-vers-item">UA</div>
-              <div class="card-vers-item">Free</div>
-            </div>
-            <div class="card-tags">
-              <a href="#" class="tag">Золото</a>
-              •
-              <a href="#" class="tag">Аккаунты</a>
-              •
-              <a href="#" class="tag">Прокачка</a>
-              <a href="#" class="tag">Подземелья</a>
-              •
-              <a href="#" class="tag">Рейды</a>
-              •
-              <a href="#" class="tag">Квесты</a>
-              •
-              <a href="#" class="tag">PvP</a>
-              <a href="#" class="tag">Экипировка</a>
-              •
-              <a href="#" class="tag">Прочее</a>
-            </div>
-          </div>
-        </div>
-        <!-- /.card__wrap -->
-        <div class="card__wrap">
-          <div class="card">
-            <img
-              src="~/assets/assets/card-pic-example.png"
-              alt="example"
-              class="card-pic"
-            />
-            <div class="card-title">
-              <p>World of Warcraft</p>
-              <p>Burning crusade classic</p>
-            </div>
-            <div class="card-vers">
-              <div class="card-vers-item">RU</div>
-              <div class="card-vers-item">EN</div>
-              <div class="card-vers-item">UA</div>
-              <div class="card-vers-item">Free</div>
-            </div>
-            <div class="card-tags">
-              <a href="#" class="tag">Золото</a>
-              •
-              <a href="#" class="tag">Аккаунты</a>
-              •
-              <a href="#" class="tag">Прокачка</a>
-              <a href="#" class="tag">Подземелья</a>
-              •
-              <a href="#" class="tag">Рейды</a>
-              •
-              <a href="#" class="tag">Квесты</a>
-              •
-              <a href="#" class="tag">PvP</a>
-              <a href="#" class="tag">Экипировка</a>
-              •
-              <a href="#" class="tag">Прочее</a>
-            </div>
-          </div>
-        </div>
-        <!-- /.card__wrap -->
-        <div class="card__wrap">
-          <div class="card">
-            <img
-              src="~/assets/assets/card-pic-example.png"
-              alt="example"
-              class="card-pic"
-            />
-            <div class="card-title">
-              <p>World of Warcraft</p>
-              <p>Burning crusade classic</p>
-            </div>
-            <div class="card-vers">
-              <div class="card-vers-item">RU</div>
-              <div class="card-vers-item">EN</div>
-              <div class="card-vers-item">UA</div>
-              <div class="card-vers-item">Free</div>
-            </div>
-            <div class="card-tags">
-              <a href="#" class="tag">Золото</a>
-              •
-              <a href="#" class="tag">Аккаунты</a>
-              •
-              <a href="#" class="tag">Прокачка</a>
-              <a href="#" class="tag">Подземелья</a>
-              •
-              <a href="#" class="tag">Рейды</a>
-              •
-              <a href="#" class="tag">Квесты</a>
-              •
-              <a href="#" class="tag">PvP</a>
-              <a href="#" class="tag">Экипировка</a>
-              •
-              <a href="#" class="tag">Прочее</a>
-            </div>
-          </div>
-        </div>
-        <!-- /.card__wrap -->
-        <div class="card__wrap">
-          <div class="card">
-            <img
-              src="~/assets/assets/card-pic-example.png"
-              alt="example"
-              class="card-pic"
-            />
-            <div class="card-title">
-              <p>World of Warcraft</p>
-              <p>Burning crusade classic</p>
-            </div>
-            <div class="card-vers">
-              <div class="card-vers-item">RU</div>
-              <div class="card-vers-item">EN</div>
-              <div class="card-vers-item">UA</div>
-              <div class="card-vers-item">Free</div>
-            </div>
-            <div class="card-tags">
-              <a href="#" class="tag">Золото</a>
-              •
-              <a href="#" class="tag">Аккаунты</a>
-              •
-              <a href="#" class="tag">Прокачка</a>
-              <a href="#" class="tag">Подземелья</a>
-              •
-              <a href="#" class="tag">Рейды</a>
-              •
-              <a href="#" class="tag">Квесты</a>
-              •
-              <a href="#" class="tag">PvP</a>
-              <a href="#" class="tag">Экипировка</a>
-              •
-              <a href="#" class="tag">Прочее</a>
-            </div>
-          </div>
-        </div>
-        <!-- /.card__wrap -->
-        <div class="card__wrap">
-          <div class="card">
-            <img
-              src="~/assets/assets/card-pic-example.png"
-              alt="example"
-              class="card-pic"
-            />
-            <div class="card-title">
-              <p>World of Warcraft</p>
-              <p>Burning crusade classic</p>
-            </div>
-            <div class="card-vers">
-              <div class="card-vers-item">RU</div>
-              <div class="card-vers-item">EN</div>
-              <div class="card-vers-item">UA</div>
-              <div class="card-vers-item">Free</div>
-            </div>
-            <div class="card-tags">
-              <a href="#" class="tag">Золото</a>
-              •
-              <a href="#" class="tag">Аккаунты</a>
-              •
-              <a href="#" class="tag">Прокачка</a>
-              <a href="#" class="tag">Подземелья</a>
-              •
-              <a href="#" class="tag">Рейды</a>
-              •
-              <a href="#" class="tag">Квесты</a>
-              •
-              <a href="#" class="tag">PvP</a>
-              <a href="#" class="tag">Экипировка</a>
-              •
-              <a href="#" class="tag">Прочее</a>
-            </div>
-          </div>
-        </div>
-        <!-- /.card__wrap -->
-        <div class="card__wrap">
-          <div class="card">
-            <img
-              src="~/assets/assets/card-pic-example.png"
-              alt="example"
-              class="card-pic"
-            />
-            <div class="card-title">
-              <p>World of Warcraft</p>
-              <p>Burning crusade classic</p>
-            </div>
-            <div class="card-vers">
-              <div class="card-vers-item">RU</div>
-              <div class="card-vers-item">EN</div>
-              <div class="card-vers-item">UA</div>
-              <div class="card-vers-item">Free</div>
-            </div>
-            <div class="card-tags">
-              <a href="#" class="tag">Золото</a>
-              •
-              <a href="#" class="tag">Аккаунты</a>
-              •
-              <a href="#" class="tag">Прокачка</a>
-              <a href="#" class="tag">Подземелья</a>
-              •
-              <a href="#" class="tag">Рейды</a>
-              •
-              <a href="#" class="tag">Квесты</a>
-              •
-              <a href="#" class="tag">PvP</a>
-              <a href="#" class="tag">Экипировка</a>
-              •
-              <a href="#" class="tag">Прочее</a>
-            </div>
-          </div>
-        </div>
-        <!-- /.card__wrap -->
-        <div class="card__wrap">
-          <div class="card">
-            <img
-              src="~/assets/assets/card-pic-example.png"
-              alt="example"
-              class="card-pic"
-            />
-            <div class="card-title">
-              <p>World of Warcraft</p>
-              <p>Burning crusade classic</p>
-            </div>
-            <div class="card-vers">
-              <div class="card-vers-item">RU</div>
-              <div class="card-vers-item">EN</div>
-              <div class="card-vers-item">UA</div>
-              <div class="card-vers-item">Free</div>
-            </div>
-            <div class="card-tags">
-              <a href="#" class="tag">Золото</a>
-              •
-              <a href="#" class="tag">Аккаунты</a>
-              •
-              <a href="#" class="tag">Прокачка</a>
-              <a href="#" class="tag">Подземелья</a>
-              •
-              <a href="#" class="tag">Рейды</a>
-              •
-              <a href="#" class="tag">Квесты</a>
-              •
-              <a href="#" class="tag">PvP</a>
-              <a href="#" class="tag">Экипировка</a>
-              •
-              <a href="#" class="tag">Прочее</a>
-            </div>
-          </div>
-        </div>
-        <!-- /.card__wrap -->
-        <div class="card__wrap">
-          <div class="card">
-            <img
-              src="~/assets/assets/card-pic-example.png"
-              alt="example"
-              class="card-pic"
-            />
-            <div class="card-title">
-              <p>World of Warcraft</p>
-              <p>Burning crusade classic</p>
-            </div>
-            <div class="card-vers">
-              <div class="card-vers-item">RU</div>
-              <div class="card-vers-item">EN</div>
-              <div class="card-vers-item">UA</div>
-              <div class="card-vers-item">Free</div>
-            </div>
-            <div class="card-tags">
-              <a href="#" class="tag">Золото</a>
-              •
-              <a href="#" class="tag">Аккаунты</a>
-              •
-              <a href="#" class="tag">Прокачка</a>
-              <a href="#" class="tag">Подземелья</a>
-              •
-              <a href="#" class="tag">Рейды</a>
-              •
-              <a href="#" class="tag">Квесты</a>
-              •
-              <a href="#" class="tag">PvP</a>
-              <a href="#" class="tag">Экипировка</a>
-              •
-              <a href="#" class="tag">Прочее</a>
-            </div>
-          </div>
-        </div>
-        <!-- /.card__wrap -->
-        <div class="card__wrap">
-          <div class="card">
-            <img
-              src="~/assets/assets/card-pic-example.png"
-              alt="example"
-              class="card-pic"
-            />
-            <div class="card-title">
-              <p>World of Warcraft</p>
-              <p>Burning crusade classic</p>
-            </div>
-            <div class="card-vers">
-              <div class="card-vers-item">RU</div>
-              <div class="card-vers-item">EN</div>
-              <div class="card-vers-item">UA</div>
-              <div class="card-vers-item">Free</div>
-            </div>
-            <div class="card-tags">
-              <a href="#" class="tag">Золото</a>
-              •
-              <a href="#" class="tag">Аккаунты</a>
-              •
-              <a href="#" class="tag">Прокачка</a>
-              <a href="#" class="tag">Подземелья</a>
-              •
-              <a href="#" class="tag">Рейды</a>
-              •
-              <a href="#" class="tag">Квесты</a>
-              •
-              <a href="#" class="tag">PvP</a>
-              <a href="#" class="tag">Экипировка</a>
-              •
-              <a href="#" class="tag">Прочее</a>
-            </div>
-          </div>
-        </div>
-        <!-- /.card__wrap -->
+        
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import  axios  from 'axios';
 export default {
+
   mounted() {
-    console.log(1 + " " + this.$store.getters.token);
+      this.getGames();
+        this.getTypes();
+       
   },
-};
+  data() {
+        return {
+            games:{},
+            types:{}
+        }
+  },
+
+  
+    methods:{
+        getGames(){
+            
+            axios
+                .get(process.env.API_URL + 'get-games')
+                .then(res => {
+                        console.log(res.data.data);
+                        this.games = res.data.data;
+                })
+
+        },
+
+        getTypes(){
+            
+            axios
+                .get(process.env.API_URL + 'get-types')
+                .then(res => {
+                        console.log(res.data.data);
+                        this.types = res.data.data;
+                })
+
+        },
+
+    }
+}
 </script>

@@ -19,3 +19,18 @@
     -moz-box-shadow: 9px 8px 10px 1px rgba(34, 60, 80, 0.2);
     box-shadow: 9px 8px 10px 1px rgb(34 60 80 / 20%);
 }
+
+.mbtn{
+  width: 300px;
+  height: 40px;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  margin-top: 20px;
+  background-color: #ffb814;
+  color: white;
+}
+#my-modal{
+  -webkit-box-shadow: 15px 16px 15px 0px rgba(34, 60, 80, 0.2);
+-moz-box-shadow: 15px 16px 15px 0px rgba(34, 60, 80, 0.2);
+box-shadow: 15px 16px 15px 0px rgba(34, 60, 80, 0.2);
+}
