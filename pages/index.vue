@@ -45,16 +45,16 @@
               class="card-pic"
             />
             <div class="card-title">
-                <NuxtLink :to="{ name: 'game-id', params: { id: item.id }}"><p>{{item.name}}</p></NuxtLink>
+                <!-- <NuxtLink :to="{ name: 'game-id', params: { id: item.id }}"><p>{{item.name}}</p></NuxtLink> -->
+                <a :href="`/game/1/${item.id}`">{{ item.name }}</a>
             </div>
             <div class="card-vers">
-              <div class="card-vers-item">RU</div>
-              <div class="card-vers-item">EN</div>
-              <div class="card-vers-item">UA</div>
-              <div class="card-vers-item">Free</div>
+              
+             <div @click="goToLang(lang)" class="card-vers-item" v-for="lang in item.languages" :key="item.languages.id">{{lang.lang}}</div>
+              
             </div>
             <div class="card-tags">
-              <a href="#" class="tag" v-for="type in types" :key="type.id">{{type.name}}</a>
+              <a :href="`/game/${type.id}/${item.id}`" class="tag" v-for="type in types" :key="type.id">{{type.name}}</a>
               
             </div>
           </div>
@@ -94,7 +94,10 @@ export default {
                 })
 
         },
-
+        goToLang(lang){
+            //console.log(lang.linked_to)
+            return location.href = '/game/1/' + lang.linked_to;
+        },
         getTypes(){
             
             axios

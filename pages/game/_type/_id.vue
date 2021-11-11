@@ -1,7 +1,5 @@
 <template>
 <div>
-  
-  
 
     <div class="gd" v-if="loaded">
           <h1 class="title gd__title">{{current_game.name}}</h1>
@@ -9,59 +7,29 @@
           <div class="gd-switch-wrapper switch-wrapper">
             <div class="gd-switch switch">
               <input type="hidden" class="switch-value" value="services">
-               <div @click="addFilterString('&type=' + item.id)" class="gd-switch-item switch-item" :data-value="item.id" :data-box-id="item.id" v-for="item in types" :key="item.id">
+               <!--
+               <div @click="addFilterString('&type=' + 'all')" class="gd-switch-item switch-item">
+                  Все
+                </div>
+                -->
+                <!--
+               <div @click="addFilterString('&type=' + item.id)" class="gd-switch-item switch-item" :class="$route.params.type == item.id ? 'red' : ''" :data-value="item.id" :data-box-id="item.id" v-for="item in types" :key="item.id">
                   {{item.name}}
                 </div>
-            
+                -->
+             <div @click="addFilterString2(item.id)" class="gd-switch-item switch-item" :class="$route.params.type == item.id ? 'red' : ''" :data-value="item.id" :data-box-id="item.id" v-for="item in types" :key="item.id">
+                  {{item.name}}
+                </div>
+               
+
             </div>
             <div class="gd-bar">
               <div class="gd-search">
-                <input type="text" class="gd-search__input" placeholder="Поиск">
-                <svg class="gd-search__icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 56.966 56.966" style="enable-background:new 0 0 56.966 56.966;" xml:space="preserve">
-                  <path d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23
-                    s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92
-                    c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17
-                    s-17-7.626-17-17S14.61,6,23.984,6z"></path>
-                </svg>
+                <input type="text" class="gd-search__input" placeholder="Поиск" v-model="search" @keydown="searchMe">
+                
               </div>
 
-              <div class="gd-select dd select">
-                <input type="hidden" class="dd-input" value="server1">
-                <div class="gd-select-item selected">
-                  <div class="gd-select-label">Сервер</div>
-                </div>
-                <div class="gd-select-arrow">▼</div>
-                <ul class="gd-select-list dd-list">
-                  <li>
-                    <div class="gd-select-item dd-item" data-value="server1">Сервер 1</div>
-                  </li>
-                  <li>
-                    <div class="gd-select-item dd-item" data-value="server2">Сервер 2</div>
-                  </li>
-                  <li>
-                    <div class="gd-select-item dd-item" data-value="server3">Сервер 3</div>
-                  </li>
-                </ul>
-              </div>
-
-              <div class="gd-select dd select">
-                <input type="hidden" class="dd-input" value="side1">
-                <div class="gd-select-item selected">
-                  <div class="gd-select-label">Сторона</div>
-                </div>
-                <div class="gd-select-arrow">▼</div>
-                <ul class="gd-select-list dd-list">
-                  <li>
-                    <div class="gd-select-item dd-item" data-value="side1">Сторона 1</div>
-                  </li>
-                  <li>
-                    <div class="gd-select-item dd-item" data-value="side2">Сторона 2</div>
-                  </li>
-                  <li>
-                    <div class="gd-select-item dd-item" data-value="side3">Сторона 3</div>
-                  </li>
-                </ul>
-              </div>
+              
 
               <label class="gd-checkbox__wrap">
                 <div class="gd-checkbox__label">Только продавцы онлайн</div>
@@ -488,14 +456,14 @@
                 <table class="gd-table">
                   <thead>
                     <tr>
-                      <th>Предмет</th>
+                      <th class="td-active" @click="sortByName">Предмет</th>
                       <th>Продавец</th>
 
                       <th v-for="field in current_game.fields" :key="field.id">
                         {{field.label}}
                       </th>
                      
-                      <th>Цена </th>
+                      <th class="td-active" @click="sortByPrice">Цена </th>
                     </tr>
                   </thead>
                   <tbody>
@@ -643,11 +611,18 @@ export default {
     data() {
         return {
             loaded: false,
-            current_game:{},
+            current_game:{
+              fields:{},
+              id:{}
+            },
             types:{},
             products:{},
             fields:{},
-            filters: ''
+            filters: '',
+            search: null,
+            sort: 'asc',
+            sortBy: 'price'
+
         }
     },
 
@@ -702,6 +677,12 @@ export default {
             this.filters = this.filters + string;
             this.getProducts();
         },
+
+      addFilterString2(string){
+        location.href = `/game/${string}/${this.current_game.id}`
+      },  
+
+
         editProduct(id){
             console.log(id)  
         },
@@ -728,11 +709,65 @@ export default {
         },
 
         getBaseProductString(){
-            let path = process.env.API_URL + `products?game_id=${this.$route.params.id}`;
+            let path = process.env.API_URL + `products?game_id=${this.$route.params.id}&type=${this.$route.params.type}`;
             path = path + this.filters;
             
             return path;
+        },
+        
+        searchMe(e){
+
+            if(e.keyCode === 27){
+                 this.getProducts();
+            }
+
+            if(this.search != null && this.search.length > 0){
+               axios
+                .get(this.getBaseProductString() + '&search=' + this.search)
+                .then(res => {
+                        console.log(res.data.data);
+                        this.products = res.data.data;
+                        
+                })
+
+            }else{
+              this.getProducts();
+            }    
+            
+
+        },
+
+        sortByPrice(){
+          //this.addFilterString('&sortByPrice=desc');
+          function compare( a, b ) {
+              if ( a.price < b.price ){
+                return -1;
+              }
+              if ( a.price > b.price ){
+                return 1;
+              }
+              return 0;
+            }
+
+            this.products.sort( compare );
+        },
+
+
+        sortByName(){
+          //this.addFilterString('&sortByPrice=desc');
+          function compare( a, b ) {
+              if ( a.name < b.name ){
+                return -1;
+              }
+              if ( a.name > b.name ){
+                return 1;
+              }
+              return 0;
+            }
+
+            this.products.sort( compare );
         }
+
 
         
      },
@@ -741,3 +776,11 @@ export default {
 
 }
 </script>
+
+
+<style scoped>
+.red {
+  background: rgb(250,170,17) !important;
+  color: white;
+}
+</style>

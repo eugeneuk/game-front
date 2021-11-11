@@ -34,3 +34,46 @@
 -moz-box-shadow: 15px 16px 15px 0px rgba(34, 60, 80, 0.2);
 box-shadow: 15px 16px 15px 0px rgba(34, 60, 80, 0.2);
 }
+
+
+.s-results{
+      border-radius: 14px;
+      position: absolute;
+      top: 44px;
+      left: 0;
+      width: 100%;
+      border: 1px solid #e9edf1;
+      z-index: 99999;
+      background: #fff;
+      padding:4px 5px;
+}
+
+.s-results li{
+  padding:10px;
+  list-style: none;
+
+} 
+
+.s-results li:hover{
+  background-color: #eff3f7;
+  cursor: pointer;
+}
+
+
+.s-results li span{
+  font-weight: bold;
+
+} 
+
+.hide{
+  display: none;
+}
+
+.show{
+  display: block;
+}
+
+.td-active{
+  text-decoration: underline;
+  cursor: pointer;
+}

@@ -65,4 +65,5 @@ export default {
   build: {
   },
   target: 'static' // default is 'server'
+  //target: 'server' // default is 'server'
 }
